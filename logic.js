@@ -13,8 +13,8 @@ function omdbSearch(keyword) {
         url: searchUrl,
         method: "GET"
     }).then(function (response) {
-
-        console.log(response);
+        location = response.data.country;
+        console.log(response + response.data.country);
     });
 }
 
