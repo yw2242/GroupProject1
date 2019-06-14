@@ -76,3 +76,13 @@
     background-color: purple;
     border: 2px solid black;
 }
+h1 {
+    text-align: center;
+}
+
+.search-result {
+    border-color: black;
+    border-width: 2px;
+    border-style: solid;
+    height: 200px;
+}
