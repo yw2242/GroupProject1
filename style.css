@@ -1,10 +1,54 @@
-h1 {
-    text-align: center;
-}
-
-.search-result {
+#fake-header  {
     border-color: black;
     border-width: 2px;
     border-style: solid;
-    height: 200px;
+    height: 80px;
+    /* margin-bottom: 50px; */
+    text-align: center;
+}
+
+.middle-box {
+    border-color: black;
+    border-width: 2px;
+    border-style: solid;
+    height: 400px;
+}
+
+/* THE BOX THAT HOLDS THE PARAGRAPHS FOR THE MOVIE INFO */
+#paragraph-box {
+    margin: 30px;
+}
+
+/* BOXES THAT DISPLAY THE SEARCH RESULTS */
+.search-result {
+    margin-bottom: 20px;
+    border-color: black;
+    border-width: 2px;
+    border-style: solid;
+    height: 400px;
+}
+
+/* MOVIE POSTER BOX IS HERE - HEIGHT = 400px*/
+#poster-box {
+    background-image: url("https://via.placeholder.com/300");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.header-space {
+    margin-top: 40px;
+}
+
+.footer {
+    text-align: center;
+    color: white;
+    background-color: gray;
+}
+
+
+
+#attraction-col-header {
+    text-align: center;
+    color: white;
+    background-color: gray;
 }
