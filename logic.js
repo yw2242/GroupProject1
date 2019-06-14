@@ -29,11 +29,16 @@ $("#submit-btn").on("click", function () {
     omdbSearch(keyword);
 
     //Results populate search page dynamically with the first ten OMDB results
-    //If movie is animated, don't show it
-    //When a user clicks on the div of a movie...
-    //The Movie title of that div will be put into a new keyword and...
-    //A new AJAX call with the OMDB Title Search will happen
-    //User will be taken to the movie page
+        //If movie is animated, don't show it
+        //When a user clicks on the div of a movie...
+        //The Movie title of that div will be put into a new keyword and...
+        //A new AJAX call with the OMDB Title Search will happen
+        //User will be taken to the movie page
+            //Poster will be dislayed
+            //Title Populated to page
+            //Actors Populated to Page
+            //Year Populated to Page
+            //Plot Populated to Page
 
 });
 
@@ -41,13 +46,13 @@ $("#submit-btn").on("click", function () {
 
 
 
-Travel API
+// Reddit API
 function displayTrip() {
-    var tripKey = "";
-    var tripURL = "";
+    var movieTitle = "";
+    var redditURL = "https://www.reddit.com/search.json?&sort=top&t=all&g=" + movieTitle;
 
     $.ajax({
-        url: tripURL,
+        url: redditURL,
         method: GET
     })
 
