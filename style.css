@@ -1,7 +1,79 @@
 .container{
-    background-color: blue;
+    background-color: grey;
     border-color: red;
     height: 960px;
     width: 960px;
+    position: fixed;
+    margin-left: 15%;
+    
+
+}
+
+.navbar {
+    width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 150px;
+    background-color: pink;
+}
+
+.brand{
+    height: 150px;
+    width: 100px;
+    float: left;
+    background-color: yellow
+}
+
+.searchcollapse{
+    height: 150px;
+    width: 50px;
+    float: right;
+    background-color: purple;
+
+
+}
+
+.main-body{
+    height: 400px;
+    width: 800px;
+    background-color: orange;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+}
+
+.subbutton{
+    float: right;
+}
+
+.topsuggestion{
+    height: 50px;
+    background-color: red;
+    
+    margin-top: 100px;
+    
+    
+}
+
+.header{
+    width: auto;
+    height: 75px;
+    border-bottom: 2px solid black;
+    padding-top: 10px
+}
+
+#searchinput{
+    float: right;
+    width: 300px;
+    
+}
+
+.movieposters{
+    height: 250px;
+    width: 150px;
+    display: flex;
+    justify-content: space-between;
+    background-color: purple;
+    border: 2px solid black;
 }
 
