@@ -3,7 +3,8 @@
 var keyword = "";
 
 // On click search button...
-$("#search-btn").on("click", function {
+$("#search-btn").on("click", function(event) {
+    event.preventDefault();
     //Gets the keyword from the search input box
     keyword = $("#search-input").val();
 
@@ -21,7 +22,7 @@ $("#search-btn").on("click", function {
 		
 		//If movie is animated, don't show it
 
-})
+});
 
 
 
