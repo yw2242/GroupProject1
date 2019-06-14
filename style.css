@@ -1,7 +1,10 @@
-.container{
-    background-color: blue;
-    border-color: red;
-    height: 960px;
-    width: 960px;
+h1 {
+    text-align: center;
 }
 
+.search-result {
+    border-color: black;
+    border-width: 2px;
+    border-style: solid;
+    height: 200px;
+}
