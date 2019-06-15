@@ -93,3 +93,21 @@ h1 {
     border-style: solid;
     height: 200px;
 }
+
+
+/* Results Page Start */
+#movie-row{
+    padding: 10px 0px;
+}
+#results-row{
+    margin-top: 20px;
+    padding: 10px 0px;
+}
+.reddit-result-col {
+    border: 1px solid black;
+}
+
+#reddit-results-row {
+    border: 1px solid black;
+
+}
