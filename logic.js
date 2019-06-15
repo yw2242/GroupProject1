@@ -1,10 +1,9 @@
 // Comment everything you code!!
 
 var keyword = "";
-var location = "";
 
 // This function searches OMDB for the keyword
-function omdbSearch(keyword) {
+function omdbSearch() {
     //OMDB Api Key
     var movieKey = "eb91f19f";
     var searchUrl = "https://www.omdbapi.com/?apikey=" + movieKey + "&t=" + keyword + "&plot=full&r=json";
@@ -26,7 +25,7 @@ $("#submit-btn").on("click", function () {
 
     console.log("I've been clicked");
 
-    omdbSearch(keyword);
+    omdbSearch();
 
     //Results populate search page dynamically with the first ten OMDB results
         //If movie is animated, don't show it
@@ -48,7 +47,7 @@ $("#submit-btn").on("click", function () {
 
 // Reddit API
 function displayTrip() {
-    var movieTitle = "";
+    var movieTitle = keyword;
     var redditURL = "https://www.reddit.com/search.json?&sort=top&t=all&g=" + movieTitle;
 
     $.ajax({

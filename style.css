@@ -1,14 +1,20 @@
-.container{
+body {
+    width: 100%;
+}
+.container-movie-page{
     background-color: grey;
     border-color: red;
-    height: 960px;
-    width: 960px;
-    position: fixed;
-    margin-left: 15%;
-    
-
+    /* height: 960px;        Why are these being specified when we're using bootstrap? -MC*/ 
+    width: 90%;
+    /* position: fixed; */
+    /* margin-left: 15%; */
 }
 
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1209px;
+    }
+}
 .navbar {
     width: 600px;
     margin-left: auto;
@@ -76,6 +82,7 @@
     background-color: purple;
     border: 2px solid black;
 }
+
 h1 {
     text-align: center;
 }
@@ -85,4 +92,22 @@ h1 {
     border-width: 2px;
     border-style: solid;
     height: 200px;
+}
+
+
+/* Results Page Start */
+#movie-row{
+    padding: 10px 0px;
+}
+#results-row{
+    margin-top: 20px;
+    padding: 10px 0px;
+}
+.reddit-result-col {
+    border: 1px solid black;
+}
+
+#reddit-results-row {
+    border: 1px solid black;
+
 }
