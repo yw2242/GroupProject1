@@ -2,43 +2,50 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Movie Results</title>
 
     <!-- Links to Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+    <link rel="stylesheet" href="style.css" />
 
     <!-- JQuery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
 </head>
 
 <body>
-
     <header id="movie-results-header">
         <h1>Movie results</h1>
         <div class="container">
             <div class="header">
                 <div id="searchinput">
-                        <div class="input-group mb-3">
-                            <input type="text" id="search-input" class="form-control" placeholder="Movie Search" aria-label="Recipient's username" aria-describedby="button-addon2">
-                            <div class="input-group-append">
-                            <button class="subbutton" type="button" id="submit-btn">Submit</button>
-                            </div>
+                    <div class="input-group mb-3">
+                        <input type="text" id="search-field" class="form-control" placeholder="Movie Search"
+                            aria-label="Recipient's username" aria-describedby="button-addon2" />
+                        <div class="input-group-append">
+                            <button class="subbutton" type="button" id="submit-btn">
+                                Submit
+                            </button>
                         </div>
+                    </div>
                 </div>
-
+            </div>
+        </div>
     </header>
 
     <!-- Main Container for all content -->
 
     <div class="container container-movie-page">
+        <div class="row header-space" id="searched-movie">
+            <h1 id="your-movie">Your Movie</h1>
+        </div>
         <div class="row" id="movie-row">
-            <div class="col-lg-5"><img id="movie-poster" src="https://via.placeholder.com/450" alt=""></div>
+            <div class="col-lg-5">
+                <img id="movie-poster" src="" alt="" />
+            </div>
             <div class="col-lg-7" id="movie-info">
                 <h3 id="movie-title">This is where the Title Goes</h3>
                 <h5 id="movie-year">This is where the year goes</h5>
@@ -46,20 +53,17 @@
                 <p id="movie-plot">This is where the plot goes</p>
             </div>
         </div>
-
-        <!-- Testing best way to populate reddit results -->
-        <div class="row" id="results-row">
-            <div class="col-lg-3 reddit-result-col" id="result-1"><img src="https://via.placeholder.com/150" alt=""></div>
-            <div class="col-lg-3 reddit-result-col" id="result-2"><img src="https://via.placeholder.com/150" alt=""></div>
-            <div class="col-lg-3 reddit-result-col" id="result-3"><img src="https://via.placeholder.com/150" alt=""></div>
-            <div class="col-lg-3 reddit-result-col" id="result-4"><img src="https://via.placeholder.com/150" alt=""></div>
+        <div class="row header-space" id="attractions-header">
+            <h1 id="your-travel-attractions">"what to I put here"</h1>
         </div>
 
         <!-- Testing best way to populate reddit results -->
         <div class="row" id="reddit-results-row"></div>
     </div>
 
-
+    <footer class="footer">
+        <h1>Movie results</h1>
+    </footer>
 
     <script type="text/javascript" src="logic.js"></script>
 </body>
