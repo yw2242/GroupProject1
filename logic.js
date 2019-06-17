@@ -13,11 +13,20 @@ function searchResult() {
         method: "GET"
     }).then(function (response) {
         console.log(response);
+        
 
-        totalResult = response.search.totalResult;
+        for (var j = 0; j < response.length; j++) {
+            var total = [];
+            total.push(response.Title);
 
-        resultTitle = response.Title;
-        $("#result-1").text(resultTitle);
+
+            $("#result-1").text(total[0]);
+            $("#result-2").text(total[1]);
+            $("#result-3").text(total[2]);
+            $("#result-4").text(total[3]);
+    
+        }
+       
     })
 
 }
@@ -152,13 +161,17 @@ function displayReddit(response) {
 }
 
 // On click search button...
+
+
+
+
 $("#submit-btn").on("click", function () {
     event.preventDefault();
 
     keyword = $("#search-input").val();
 
-    omdbSearch();
-    redditSearch();
+    searchResult();
+
 
     //Results populate search page dynamically with the first ten OMDB results
     //If movie is animated, don't show it
@@ -173,6 +186,20 @@ $("#submit-btn").on("click", function () {
     //Plot Populated to Page
 
 });
+
+
+
+
+// After clicking a movie...
+
+$("#").on("click", function () {
+    event.preventDefault();
+
+    keyword = $("#search-input").val();
+
+    omdbSearch();
+    redditSearch();
+})
 
 
 
