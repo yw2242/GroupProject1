@@ -4,14 +4,35 @@ var keyword = "";
 
 
 
+function searchResult() {
+    var movieKey = "eb91f19f";
+    var resultURL = "https://www.omdbapi.com/?apikey=" + movieKey + "&s=" + keyword + "&plot=full&r=json";
+
+    $.ajax({
+        url: resultURL,
+        method: "GET"
+    }).then(function (response) {
+        console.log(response);
+
+        totalResult = response.search.totalResult;
+
+        resultTitle = response.Title;
+        $("#result-1").text(resultTitle);
+    })
+
+}
+
+
+
 // This function searches OMDB for the keyword
+
 function omdbSearch() {
     //OMDB Api Key
     var movieKey = "eb91f19f";
-    var searchUrl = "https://www.omdbapi.com/?apikey=" + movieKey + "&t=" + keyword + "&plot=full&r=json";
+    var searchURL = "https://www.omdbapi.com/?apikey=" + movieKey + "&t=" + keyword + "&plot=full&r=json";
 
     $.ajax({
-        url: searchUrl,
+        url: searchURL,
         method: "GET"
     }).then(function (response) {
         console.log(response);
