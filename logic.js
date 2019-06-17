@@ -159,10 +159,5 @@ $("#submit-btn").on("click", function () {
 
 
 
-<<<<<<< HEAD
-//On click a selected movie...
-$(document).on("click", ".movieBtn", displayTrip);
-=======
 // On click a selected movie...
 // $(document).on("click", ".movieBtn", displayTrip);
->>>>>>> refs/remotes/origin/master
