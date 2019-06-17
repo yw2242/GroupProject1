@@ -2,8 +2,6 @@
 
 var keyword = "";
 
-
-
 // This function searches OMDB for the keyword
 function omdbSearch() {
     //OMDB Api Key
@@ -16,25 +14,25 @@ function omdbSearch() {
     }).then(function (response) {
         var results = response.data;
         console.log(response);
-
              
-            var poster = results.poster.url;
-            var moviePoster = $("#movie-poster");
-                moviePoster.attr("src", poster);
+            var poster = response.Poster;
+            console.log("This is the poster for the movie: " + poster);
+            // var moviePoster = $("#movie-poster");
+            //     moviePoster.attr("src", poster);
 
-            var title = results.title;
-            var movieTitle = $("#movie-title").text("Title: " + title);  
+            // var title = results.title;
+            // var movieTitle = $("#movie-title").text("Title: " + title);  
 
-            var actors = results.actors;
-            var movieActors = $("movie-actors").text("Actors: " + actors);
+            // var actors = results.actors;
+            // var movieActors = $("movie-actors").text("Actors: " + actors);
 
-            var year = results.year;
-            var movieYear = $("#movie-year").text("Year: " + year);
+            // var year = results.year;
+            // var movieYear = $("#movie-year").text("Year: " + year);
 
-            $("#movie-row").prepend(moviePoster);
-            $("#movie-row").prepend(movieTitle);
-            $("#movie-row").prepend(movieActors);
-            $("#movie-row").prepend(movieYear);
+            // $("#movie-row").prepend(moviePoster);
+            // $("#movie-row").prepend(movieTitle);
+            // $("#movie-row").prepend(movieActors);
+            // $("#movie-row").prepend(movieYear);
 
     });
 }
@@ -59,7 +57,7 @@ function displayReddit(response) {
     var postCount = 0;
 
     //While the number of posts is less than 5...
-    while (postCount < 5) {
+    while (postCount < 9) {
 
         //Run this for each function that will append the reddit image, link and title to the page
         response.data.children.forEach(function (post) {
@@ -91,7 +89,7 @@ function displayReddit(response) {
             isUrlImage(post.data.url);
 
             //While the url is an image and the post count is less than 5...
-            if (isImage === true && postCount < 5) {
+            if (isImage === true && postCount < 9) {
 
                 // create these variables using the still image and gif urls
                 var title = post.data.title;
@@ -105,8 +103,8 @@ function displayReddit(response) {
                 // makes new image tag for each gif and adds the following attr and class
                 var image = $("<img>");
                 image.attr("src", imgURL);
-                image.addClass("class", "reddit-img");
-                image.attr("id", 'result' + count);
+                image.addClass("reddit-img");
+                image.attr("id", 'result-' + count);
 
                 //New div and paragraph information
                 var newp = $("<p class='post-tag'> Title: " + title + "<br></br> Subreddit: " + subreddit + "</p>");
