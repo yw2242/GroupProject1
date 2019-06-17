@@ -28,6 +28,7 @@ function omdbSearch() {
             console.log(poster);
             var moviePoster = $("#movie-poster");
                 moviePoster.attr("src", poster);
+                
 
             var title = response.Title;
             $("#movie-title").text("Title: " + title);  
@@ -141,6 +142,7 @@ function displayReddit(response) {
 
 // On click search button...
 $("#submit-btn").on("click", function () {
+    // $("reddit-results-row").empty();
     event.preventDefault();
 
     keyword = $("#search-field").val();
