@@ -71,6 +71,14 @@ body {
 
 }
 
+#brandcontainer{
+    width: 200px;
+    height: 55px;
+    float: left;
+    text-align: center;
+    padding-top: 5px;
+}
+
 .movieposters{
     display: flex;
     justify-content: space-between;
@@ -99,6 +107,44 @@ body {
     width: 150px;
     background-color: white;
     border: 2px solid black;
+}
+
+.suggestiontitles{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+#suggestiontitle1{
+    height: 50px;
+    width: 150px;
+    background-color: white;
+    border: 2px solid black;
+
+}
+
+#suggestiontitle2{
+    height: 50px;
+    width: 150px;
+    background-color: white;
+    border: 2px solid black;
+    
+}
+
+#suggestiontitle3{
+    height: 50px;
+    width: 150px;
+    background-color: white;
+    border: 2px solid black;
+    
+}
+
+#suggestiontitle4{
+    height: 50px;
+    width: 150px;
+    background-color: white;
+    border: 2px solid black;
+    
 }
 
 h1 {
