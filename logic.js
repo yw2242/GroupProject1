@@ -41,6 +41,10 @@ function searchResult() {
 
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> refs/remotes/origin/megan
 // This function searches OMDB for the keyword
 
 function omdbSearch() {
