@@ -34,7 +34,7 @@ function omdbSearch() {
             var plot = response.Plot;
             $("#movie-plot").text("Plot: " + plot);
 
-
+            $("#search-input").val("");
     });
 }
 
