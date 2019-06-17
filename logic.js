@@ -2,25 +2,42 @@
 
 var keyword = "";
 
+// This function searches OMDB for the keyword
+function omdbSearch() {
+    //OMDB Api Key
+    var movieKey = "eb91f19f";
+    var searchUrl = "https://www.omdbapi.com/?apikey=" + movieKey + "&t=" + keyword + "&plot=full&r=json";
+
+    $.ajax({
+        url: searchUrl,
+        method: "GET"
+    }).then(function (response) {
+        location = response.data.country;
+        console.log(response + response.data.country);
+    });
+}
+
 // On click search button...
-$("#search-btn").on("click", function(event) {
+$("#submit-btn").on("click", function () {
     event.preventDefault();
-    //Gets the keyword from the search input box
+    
     keyword = $("#search-input").val();
 
-		//OMDB Api Key
-    var movieKey = "eb91f19f";  
-    var searchUrl = "https://www.omdbapi.com/?apikey=" + movieKey + "&s=" + keyword + "&plot=full&r=json";
+    console.log("I've been clicked");
 
-		$.ajax({
-      url: searchUrl,
-      method: GET
-    }).then(function(response){
-      console.log(response);
-    });
-		
-		
-		//If movie is animated, don't show it
+    omdbSearch();
+
+    //Results populate search page dynamically with the first ten OMDB results
+        //If movie is animated, don't show it
+        //When a user clicks on the div of a movie...
+        //The Movie title of that div will be put into a new keyword and...
+        //A new AJAX call with the OMDB Title Search will happen
+        //User will be taken to the movie page
+            //Poster will be dislayed
+            //Title Populated to page
+            //Actors Populated to Page
+            //Year Populated to Page
+            //Plot Populated to Page
 
 });
 
@@ -28,20 +45,20 @@ $("#search-btn").on("click", function(event) {
 
 
 
-// Travel API
+// Reddit API
 function displayTrip() {
-    var tripKey = "";
-  	var tripURL = "";
-  
-  	$.ajax({
-      url: tripURL,
-      method: GET
+    var movieTitle = keyword;
+    var redditURL = "https://www.reddit.com/search.json?&sort=top&t=all&g=" + movieTitle;
+
+    $.ajax({
+        url: redditURL,
+        method: GET
     })
-  
-		
-          
+
+
+
 }
 
 
-// On click a selected movie...
+On click a selected movie...
 $(document).on("click", ".movieBtn", displayTrip);
