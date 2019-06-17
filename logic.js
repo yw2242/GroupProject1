@@ -2,8 +2,6 @@
 
 var keyword = "";
 
-
-
 // This function searches OMDB for the keyword
 function omdbSearch() {
     //OMDB Api Key
@@ -15,7 +13,6 @@ function omdbSearch() {
         method: "GET"
     }).then(function (response) {
         console.log(response);
-
              
             var poster = response.Poster;
             console.log(poster);
@@ -40,7 +37,7 @@ function omdbSearch() {
 
 // Function that searches Reddit for keyword
 function redditSearch() {
-
+    
     var redditURL = "https://www.reddit.com/search.json?&sort=top&limit=25&t=all&self=yes&q=" + keyword + " movie";
 
     $.ajax({
@@ -58,7 +55,7 @@ function displayReddit(response) {
     var postCount = 0;
 
     //While the number of posts is less than 5...
-    while (postCount < 5) {
+    while (postCount < 9) {
 
         //Run this for each function that will append the reddit image, link and title to the page
         response.data.children.forEach(function (post) {
@@ -90,7 +87,7 @@ function displayReddit(response) {
             isUrlImage(post.data.url);
 
             //While the url is an image and the post count is less than 5...
-            if (isImage === true && postCount < 5) {
+            if (isImage === true && postCount < 9) {
 
                 // create these variables using the still image and gif urls
                 var title = post.data.title;
@@ -135,6 +132,8 @@ $("#submit-btn").on("click", function () {
     event.preventDefault();
 
     keyword = $("#search-input").val();
+    keyword = keyword.replace(" ", "+");
+
 
     omdbSearch();
     redditSearch();
