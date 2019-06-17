@@ -3,6 +3,14 @@
 var keyword = "";
 
 
+if (window.location.search) {
+    keyword = window.location.search.split("=")[1];
+    $("#search-field").val(keyword);
+    omdbSearch();
+    redditSearch();
+}
+
+// WWW.WER.com/asdf/asdf/asdf?asdf=asdf&
 
 // This function searches OMDB for the keyword
 function omdbSearch() {
@@ -15,7 +23,6 @@ function omdbSearch() {
         method: "GET"
     }).then(function (response) {
         console.log(response);
-
              
             var poster = response.Poster;
             console.log(poster);
@@ -35,13 +42,13 @@ function omdbSearch() {
             var plot = response.Plot;
             $("#movie-plot").text("Plot: " + plot);
 
-
+            // $("#search-input").val("");
     });
 }
 
 // Function that searches Reddit for keyword
 function redditSearch() {
-
+    
     var redditURL = "https://www.reddit.com/search.json?&sort=top&limit=25&t=all&self=yes&q=" + keyword + " movie";
 
     $.ajax({
@@ -59,7 +66,7 @@ function displayReddit(response) {
     var postCount = 0;
 
     //While the number of posts is less than 5...
-    while (postCount < 5) {
+    while (postCount < 9) {
 
         //Run this for each function that will append the reddit image, link and title to the page
         response.data.children.forEach(function (post) {
@@ -91,7 +98,7 @@ function displayReddit(response) {
             isUrlImage(post.data.url);
 
             //While the url is an image and the post count is less than 5...
-            if (isImage === true && postCount < 5) {
+            if (isImage === true && postCount < 9) {
 
                 // create these variables using the still image and gif urls
                 var title = post.data.title;
@@ -131,50 +138,27 @@ function displayReddit(response) {
 
 }
 
+
+
 // On click search button...
 $("#submit-btn").on("click", function () {
+    // $("reddit-results-row").empty();
     event.preventDefault();
 
-    keyword = $("#search-input").val();
+    keyword = $("#search-field").val();
+    keyword = keyword.replace(" ", "+");
+    var currentFile = window.location.pathname.split("/").pop();
+    
+    if(currentFile === "movie.html") {
+        omdbSearch();
+        redditSearch();
+    }
+    else {
+        window.location.href = 'movie.html?title=' + keyword;
+    }
 
-    omdbSearch();
-    redditSearch();
-
-    //Results populate search page dynamically with the first ten OMDB results
-    //If movie is animated, don't show it
-    //When a user clicks on the div of a movie...
-    //The Movie title of that div will be put into a new keyword and...
-    //A new AJAX call with the OMDB Title Search will happen
-    //User will be taken to the movie page
-    //Poster will be dislayed
-    //Title Populated to page
-    //Actors Populated to Page
-    //Year Populated to Page
-    //Plot Populated to Page
 
 });
 
 
 
-
-
-// Reddit API
-function displayTrip() {
-    var movieTitle = keyword;
-    var redditURL = "https://www.reddit.com/search.json?&sort=top&t=all&g=" + movieTitle;
-
-    $.ajax({
-        url: redditURL,
-        method: GET
-    })
-
-
-
-}
-
-
-
-
-
-// On click a selected movie...
-// $(document).on("click", ".movieBtn", displayTrip);

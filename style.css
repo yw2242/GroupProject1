@@ -1,5 +1,7 @@
 body {
-  width: 100%;
+    width: 100%;
+    background: url(https://st2.depositphotos.com/1780485/10917/i/950/depositphotos_109178938-stock-photo-background-of-blue-brick-wall.jpg) no-repeat;
+    background-size: cover;
 }
 
 .container-movie-page {
@@ -12,7 +14,7 @@ body {
   .container {
     max-width: 1209px;
   }
-}
+}  
 
 .navbar {
   width: 600px;
@@ -81,6 +83,31 @@ body {
   padding-top: 5px;
 }
 
+#brandcontainer{
+    width: 200px;
+    height: 55px;
+    float: left;
+    text-align: center;
+    padding-top: 8px;
+    background: black;
+    border-radius: 25px;
+   
+}
+
+    
+
+h3{
+    color: white;
+}
+
+.topsuggestion{
+    background: black;
+    border-radius: 25px;
+    width: 250px;
+    height: 100;
+    text-align: center;
+    padding-top: 5px;
+}
 .movieposters {
   display: flex;
   justify-content: space-between;
