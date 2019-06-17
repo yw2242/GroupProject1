@@ -34,7 +34,7 @@ function omdbSearch() {
             var plot = response.Plot;
             $("#movie-plot").text("Plot: " + plot);
 
-
+            $("#search-input").val("");
     });
 }
 
@@ -155,25 +155,3 @@ $("#submit-btn").on("click", function () {
 
 
 
-
-
-// Reddit API
-function displayTrip() {
-    var movieTitle = keyword;
-    var redditURL = "https://www.reddit.com/search.json?&sort=top&t=all&g=" + movieTitle;
-
-    $.ajax({
-        url: redditURL,
-        method: GET
-    })
-
-
-
-}
-
-
-
-
-
-// On click a selected movie...
-// $(document).on("click", ".movieBtn", displayTrip);
