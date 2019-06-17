@@ -12,14 +12,48 @@ if (window.location.search) {
 
 // WWW.WER.com/asdf/asdf/asdf?asdf=asdf&
 
+function searchResult() {
+    var movieKey = "eb91f19f";
+    var resultURL = "https://www.omdbapi.com/?apikey=" + movieKey + "&s=" + keyword + "&plot=full&r=json";
+
+    $.ajax({
+        url: resultURL,
+        method: "GET"
+    }).then(function (response) {
+        console.log(response);
+        
+
+        for (var j = 0; j < response.length; j++) {
+            var total = [];
+            total.push(response.Title);
+
+
+            $("#result-1").text(total[0]);
+            $("#result-2").text(total[1]);
+            $("#result-3").text(total[2]);
+            $("#result-4").text(total[3]);
+    
+        }
+       
+    })
+
+}
+
+
+
+<<<<<<< HEAD
+=======
+
+>>>>>>> refs/remotes/origin/megan
 // This function searches OMDB for the keyword
+
 function omdbSearch() {
     //OMDB Api Key
     var movieKey = "eb91f19f";
-    var searchUrl = "https://www.omdbapi.com/?apikey=" + movieKey + "&t=" + keyword + "&plot=full&r=json";
+    var searchURL = "https://www.omdbapi.com/?apikey=" + movieKey + "&t=" + keyword + "&plot=full&r=json";
 
     $.ajax({
-        url: searchUrl,
+        url: searchURL,
         method: "GET"
     }).then(function (response) {
         console.log(response);
@@ -141,6 +175,10 @@ function displayReddit(response) {
 
 
 // On click search button...
+
+
+
+
 $("#submit-btn").on("click", function () {
     // $("reddit-results-row").empty();
     event.preventDefault();
@@ -159,6 +197,20 @@ $("#submit-btn").on("click", function () {
 
 
 });
+
+
+
+
+// After clicking a movie...
+
+$("#").on("click", function () {
+    event.preventDefault();
+
+    keyword = $("#search-input").val();
+
+    omdbSearch();
+    redditSearch();
+})
 
 
 
