@@ -104,8 +104,8 @@ function displayReddit(response) {
                 // makes new image tag for each gif and adds the following attr and class
                 var image = $("<img>");
                 image.attr("src", imgURL);
-                image.addClass("class", "reddit-img");
-                image.attr("id", 'result' + count);
+                image.addClass("reddit-img");
+                image.attr("id", 'result-' + count);
 
                 //New div and paragraph information
                 var newp = $("<p class='post-tag'> Title: " + title + "<br></br> Subreddit: " + subreddit + "</p>");
