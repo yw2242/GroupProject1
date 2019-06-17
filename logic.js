@@ -4,6 +4,7 @@ var keyword = "";
 
 
 
+
 function searchResult() {
     var movieKey = "eb91f19f";
     var resultURL = "https://www.omdbapi.com/?apikey=" + movieKey + "&s=" + keyword + "&plot=full&r=json";
@@ -24,6 +25,7 @@ function searchResult() {
 
 
 
+
 // This function searches OMDB for the keyword
 
 function omdbSearch() {
@@ -36,7 +38,6 @@ function omdbSearch() {
         method: "GET"
     }).then(function (response) {
         console.log(response);
-
              
             var poster = response.Poster;
             console.log(poster);
@@ -61,7 +62,7 @@ function omdbSearch() {
 
 // Function that searches Reddit for keyword
 function redditSearch() {
-
+    
     var redditURL = "https://www.reddit.com/search.json?&sort=top&limit=25&t=all&self=yes&q=" + keyword + " movie";
 
     $.ajax({
@@ -79,7 +80,7 @@ function displayReddit(response) {
     var postCount = 0;
 
     //While the number of posts is less than 5...
-    while (postCount < 5) {
+    while (postCount < 9) {
 
         //Run this for each function that will append the reddit image, link and title to the page
         response.data.children.forEach(function (post) {
@@ -111,7 +112,7 @@ function displayReddit(response) {
             isUrlImage(post.data.url);
 
             //While the url is an image and the post count is less than 5...
-            if (isImage === true && postCount < 5) {
+            if (isImage === true && postCount < 9) {
 
                 // create these variables using the still image and gif urls
                 var title = post.data.title;
@@ -125,8 +126,8 @@ function displayReddit(response) {
                 // makes new image tag for each gif and adds the following attr and class
                 var image = $("<img>");
                 image.attr("src", imgURL);
-                image.addClass("class", "reddit-img");
-                image.attr("id", 'result' + count);
+                image.addClass("reddit-img");
+                image.attr("id", 'result-' + count);
 
                 //New div and paragraph information
                 var newp = $("<p class='post-tag'> Title: " + title + "<br></br> Subreddit: " + subreddit + "</p>");
@@ -156,6 +157,8 @@ $("#submit-btn").on("click", function () {
     event.preventDefault();
 
     keyword = $("#search-input").val();
+    keyword = keyword.replace(" ", "+");
+
 
     omdbSearch();
     redditSearch();

@@ -1,74 +1,86 @@
 body {
     width: 100%;
+    background: url(https://st2.depositphotos.com/1780485/10917/i/950/depositphotos_109178938-stock-photo-background-of-blue-brick-wall.jpg) no-repeat;
+    background-size: cover;
 }
-.container-movie-page{
-    background-color: grey;
-    border-color: red;
-    /* height: 960px;        Why are these being specified when we're using bootstrap? -MC*/ 
-    width: 90%;
-    /* position: fixed; */
-    /* margin-left: 15%; */
+
+.container-movie-page {
+  background-color: grey;
+  border-color: red;
+  width: 90%;
 }
 
 @media (min-width: 1200px) {
-    .container {
-        max-width: 1209px;
-    }
+  .container {
+    max-width: 1209px;
+  }
 }
+
 .navbar {
-    width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-    height: 150px;
-    background-color: pink;
+  width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  height: 150px;
+  background-color: pink;
 }
 
-.brand{
-    height: 150px;
-    width: 100px;
-    float: left;
-    background-color: yellow
+.brand {
+  height: 150px;
+  width: 100px;
+  float: left;
+  background-color: yellow;
 }
 
-.searchcollapse{
-    height: 150px;
-    width: 50px;
-    float: right;
-    background-color: purple;
-
-
+.searchcollapse {
+  height: 150px;
+  width: 50px;
+  float: right;
+  background-color: purple;
 }
 
-.main-body{
-    height: 400px;
-    width: 820px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 50px;
+.main-body {
+  height: 400px;
+  width: 820px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
 }
 
-.subbutton{
-    float: right;
+.subbutton {
+  float: right;
 }
 
-.topsuggestion{
-    height: 50px;
-    margin-top: 100px;
-
-
+.topsuggestion {
+  height: 50px;
+  margin-top: 100px;
 }
 
-.header{
-    width: auto;
-    height: 75px;
-    border-bottom: 2px solid black;
-    padding-top: 10px
+.header {
+  width: auto;
+  height: 75px;
+  border-bottom: 2px solid black;
+  padding-top: 10px;
 }
 
-#searchinput{
-    float: right;
-    width: 300px;
+#searchinput {
+  float: right;
+  width: 300px;
+}
 
+#brandcontainer {
+  width: 200px;
+  height: 55px;
+  float: left;
+  text-align: center;
+  padding-top: 5px;
+}
+
+#brandcontainer {
+  width: 200px;
+  height: 55px;
+  float: left;
+  text-align: center;
+  padding-top: 5px;
 }
 
 #brandcontainer{
@@ -76,102 +88,150 @@ body {
     height: 55px;
     float: left;
     text-align: center;
+    padding-top: 8px;
+    background: black;
+    border-radius: 25px;
+   
+}
+
+    
+
+h3{
+    color: white;
+}
+
+.topsuggestion{
+    background: black;
+    border-radius: 25px;
+    width: 250px;
+    height: 100;
+    text-align: center;
     padding-top: 5px;
 }
-
-.movieposters{
-    display: flex;
-    justify-content: space-between;
+.movieposters {
+  display: flex;
+  justify-content: space-between;
 }
 
-#movieposter1{
-    height: 250px;
-    width: 150px;
-    background-color: white;
-    border: 2px solid black;
-}
-#movieposter2{
-    height: 250px;
-    width: 150px;
-    background-color: white;
-    border: 2px solid black;
-}
-#movieposter3{
-    height: 250px;
-    width: 150px;
-    background-color: white;
-    border: 2px solid black;
-}
-#movieposter4{
-    height: 250px;
-    width: 150px;
-    background-color: white;
-    border: 2px solid black;
+#movieposter1 {
+  height: 250px;
+  width: 150px;
+  background-color: white;
+  border: 2px solid black;
 }
 
-.suggestiontitles{
-    display: flex;
-    justify-content: space-between;
-    margin-top: 10px;
+#movieposter2 {
+  height: 250px;
+  width: 150px;
+  background-color: white;
+  border: 2px solid black;
 }
 
-#suggestiontitle1{
-    height: 50px;
-    width: 150px;
-    background-color: white;
-    border: 2px solid black;
-
+#movieposter3 {
+  height: 250px;
+  width: 150px;
+  background-color: white;
+  border: 2px solid black;
 }
 
-#suggestiontitle2{
-    height: 50px;
-    width: 150px;
-    background-color: white;
-    border: 2px solid black;
-    
+#movieposter4 {
+  height: 250px;
+  width: 150px;
+  background-color: white;
+  border: 2px solid black;
 }
 
-#suggestiontitle3{
-    height: 50px;
-    width: 150px;
-    background-color: white;
-    border: 2px solid black;
-    
+.suggestiontitles {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
 }
 
-#suggestiontitle4{
-    height: 50px;
-    width: 150px;
-    background-color: white;
-    border: 2px solid black;
-    
+#suggestiontitle1 {
+  height: 50px;
+  width: 150px;
+  background-color: white;
+  border: 2px solid black;
+}
+
+#suggestiontitle2 {
+  height: 50px;
+  width: 150px;
+  background-color: white;
+  border: 2px solid black;
+}
+
+#suggestiontitle3 {
+  height: 50px;
+  width: 150px;
+  background-color: white;
+  border: 2px solid black;
+}
+
+#suggestiontitle4 {
+  height: 50px;
+  width: 150px;
+  background-color: white;
+  border: 2px solid black;
 }
 
 h1 {
-    text-align: center;
+  text-align: center;
 }
 
-.search-result {
-    border-color: black;
-    border-width: 2px;
-    border-style: solid;
-    height: 200px;
+.middle-box {
+  border-color: black;
+  border-width: 2px;
+  border-style: solid;
+  height: 400px;
 }
 
+.header-space {
+  margin-top: 40px;
+}
+
+.footer {
+  text-align: center;
+  color: white;
+  background-color: gray;
+}
+
+#attraction-col-header {
+  text-align: center;
+  color: white;
+  background-color: gray;
+  height: 200px;
+}
 
 /* Results Page Start */
-#movie-row{
-    padding: 10px 0px;
+#movie-row {
+  padding: 10px 0px;
 }
-#results-row{
-    margin-top: 20px;
-    padding: 10px 0px;
+
+#results-row {
+  margin-top: 20px;
+  padding: 10px 0px;
 }
+
 .reddit-result-col {
-    border: 1px solid black;
+  border: 1px solid black;
 }
 
 #reddit-results-row {
-    border: 1px solid black;
-
+  border: 1px solid black;
 }
+
+.reddit-img {
+    height: 300px;
+    /* min-width: 300px; */
+    min-height: 300px;
+  }
+  
+.reddit-result-col {
+    display: flex;
+    flex: 1 1 auto;
+    position: relative;
+    width: 100%;
+    margin: 8px;
+    align-items: center;
+  }
