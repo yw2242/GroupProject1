@@ -18,7 +18,7 @@ function omdbSearch() {
         console.log(response);
 
              
-            var poster = results.poster.fixed_height_still.url;
+            var poster = results.poster.url;
             var moviePoster = $("#movie-poster");
                 moviePoster.attr("src", poster);
 
@@ -178,5 +178,5 @@ function displayTrip() {
 
 
 
-$(document).on("click", ".movieBtn", displayTrip);
-
+// On click a selected movie...
+// $(document).on("click", ".movieBtn", displayTrip);
