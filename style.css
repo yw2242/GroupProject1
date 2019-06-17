@@ -193,3 +193,18 @@ h1 {
 #reddit-results-row {
   border: 1px solid black;
 }
+
+.reddit-img {
+    height: 300px;
+    /* min-width: 300px; */
+    min-height: 300px;
+  }
+  
+.reddit-result-col {
+    display: flex;
+    flex: 1 1 auto;
+    position: relative;
+    width: 100%;
+    margin: 8px;
+    align-items: center;
+  }
