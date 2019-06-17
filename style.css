@@ -35,8 +35,7 @@
 
 .main-body{
     height: 400px;
-    width: 800px;
-    background-color: orange;
+    width: 820px;
     margin-left: auto;
     margin-right: auto;
     margin-top: 50px;
@@ -48,8 +47,6 @@
 
 .topsuggestion{
     height: 50px;
-    background-color: red;
-
     margin-top: 100px;
 
 
@@ -69,11 +66,32 @@
 }
 
 .movieposters{
-    height: 250px;
-    width: 150px;
     display: flex;
     justify-content: space-between;
-    background-color: purple;
+}
+
+#movieposter1{
+    height: 250px;
+    width: 150px;
+    background-color: white;
+    border: 2px solid black;
+}
+#movieposter2{
+    height: 250px;
+    width: 150px;
+    background-color: white;
+    border: 2px solid black;
+}
+#movieposter3{
+    height: 250px;
+    width: 150px;
+    background-color: white;
+    border: 2px solid black;
+}
+#movieposter4{
+    height: 250px;
+    width: 150px;
+    background-color: white;
     border: 2px solid black;
 }
 h1 {
