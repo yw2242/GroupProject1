@@ -158,11 +158,23 @@ $("#submit-btn").on("click", function () {
 
 
 
+// Reddit API
+function displayTrip() {
+    var movieTitle = keyword;
+    var redditURL = "https://www.reddit.com/search.json?&sort=top&t=all&g=" + movieTitle;
 
-<<<<<<< HEAD
-//On click a selected movie...
+    $.ajax({
+        url: redditURL,
+        method: GET
+    })
+
+
+
+}
+
+
+
+
+
 $(document).on("click", ".movieBtn", displayTrip);
-=======
-// On click a selected movie...
-// $(document).on("click", ".movieBtn", displayTrip);
->>>>>>> refs/remotes/origin/master
+
