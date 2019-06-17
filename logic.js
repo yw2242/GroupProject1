@@ -2,6 +2,8 @@
 
 var keyword = "";
 
+
+
 // This function searches OMDB for the keyword
 function omdbSearch() {
     //OMDB Api Key
@@ -19,7 +21,7 @@ function omdbSearch() {
 
 // Function that searches Reddit for keyword
 function redditSearch() {
-
+    
     var redditURL = "https://www.reddit.com/search.json?&sort=top&limit=25&t=all&self=yes&q=" + keyword + " movie";
 
     $.ajax({
@@ -114,6 +116,8 @@ $("#submit-btn").on("click", function () {
     event.preventDefault();
 
     keyword = $("#search-input").val();
+    keyword = keyword.replace(" ", "+");
+
 
     omdbSearch();
     redditSearch();
