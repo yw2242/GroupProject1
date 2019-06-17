@@ -2,61 +2,68 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Movie Results</title>
 
     <!-- Links to Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+    <link rel="stylesheet" href="style.css" />
 
     <!-- JQuery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
 </head>
 
 <body>
-
-    <!-- THIS IS A FAKE HEADER FOR STORAGE -->
-    <header id="fake-header">
-        <h1>Movie results SPACE SAVER</h1>
+    <header id="movie-results-header">
+        <h1>Movie results</h1>
+        <div class="container">
+            <div class="header">
+                <div id="searchinput">
+                    <div class="input-group mb-3">
+                        <input type="text" id="search-input" class="form-control" placeholder="Movie Search"
+                            aria-label="Recipient's username" aria-describedby="button-addon2" />
+                        <div class="input-group-append">
+                            <button class="subbutton" type="button" id="submit-btn">
+                                Submit
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </header>
 
     <!-- Main Container for all content -->
 
-    <div class="container">
-        <div class="row header-space" id="searched-movie"><h1 id="your-movie">Your Movie</h1></div>
-        
-        <div class="row" id="poster-info-row">
-
-            <div class="col-lg-6 middle-box" id="poster-box">Poster Col</div>
-
-            <div class="col-lg-6 middle-box">
-                <div id="paragraph-box">
-                    <p id="paragraph-1">P-1 asdfasdfasdfsa dfas fdsadf asdfa</p>
-                    <p id="paragraph-2">P-2 fasdfsa fasf dasfda fasfas</p>
-                    <p id="paragraph-3">P-3 dafs fd af asfd asfd </p>
-                    <p id="paragraph-4">P-4 adf sdf asfdasf sdf asfd ad</p>
-                </div>
+    <div class="container container-movie-page">
+        <div class="row header-space" id="searched-movie">
+            <h1 id="your-movie">Your Movie</h1>
+        </div>
+        <div class="row" id="movie-row">
+            <div class="col-lg-5" id="movie-poster">
+                <img src="https://via.placeholder.com/450" alt="" />
+            </div>
+            <div class="col-lg-7" id="movie-info">
+                <h3 id="movie-title">This is where the Title Goes</h3>
+                <h5 id="movie-year">This is where the year goes</h5>
+                <p id="movie-actors">This is where the actors go</p>
+                <p id="movie-plot">This is where the plot goes</p>
             </div>
         </div>
-
-        <div class="row header-space" id="attractions-header"><h1 id="your-travel-attractions">Your Travel Attractions</h1></div>
-
-        <div class="row" id="results-row">
-            <div class="col-lg-3 search-result" id="result-1"><div id="attraction-col-header"><h3>Col 1</h3></div></div>
-            <div class="col-lg-3 search-result" id="result-2">Col 2</div>
-            <div class="col-lg-3 search-result" id="result-3">Col 3</div>
-            <div class="col-lg-3 search-result" id="result-4">Col 4</div>
+        <div class="row header-space" id="attractions-header">
+            <h1 id="your-travel-attractions">Your Travel Attractions</h1>
         </div>
 
+        <!-- Testing best way to populate reddit results -->
+        <div class="row" id="reddit-results-row"></div>
     </div>
 
-    <footer class="footer"><h1>Movie results</h1></footer>
-
-
+    <footer class="footer">
+        <h1>Movie results</h1>
+    </footer>
 
     <script type="text/javascript" src="logic.js"></script>
 </body>
