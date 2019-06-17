@@ -41,8 +41,7 @@ body {
 
 .main-body{
     height: 400px;
-    width: 800px;
-    background-color: orange;
+    width: 820px;
     margin-left: auto;
     margin-right: auto;
     margin-top: 50px;
@@ -54,8 +53,6 @@ body {
 
 .topsuggestion{
     height: 50px;
-    background-color: red;
-
     margin-top: 100px;
 
 
@@ -74,13 +71,80 @@ body {
 
 }
 
+#brandcontainer{
+    width: 200px;
+    height: 55px;
+    float: left;
+    text-align: center;
+    padding-top: 5px;
+}
+
 .movieposters{
-    height: 250px;
-    width: 150px;
     display: flex;
     justify-content: space-between;
-    background-color: purple;
+}
+
+#movieposter1{
+    height: 250px;
+    width: 150px;
+    background-color: white;
     border: 2px solid black;
+}
+#movieposter2{
+    height: 250px;
+    width: 150px;
+    background-color: white;
+    border: 2px solid black;
+}
+#movieposter3{
+    height: 250px;
+    width: 150px;
+    background-color: white;
+    border: 2px solid black;
+}
+#movieposter4{
+    height: 250px;
+    width: 150px;
+    background-color: white;
+    border: 2px solid black;
+}
+
+.suggestiontitles{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+#suggestiontitle1{
+    height: 50px;
+    width: 150px;
+    background-color: white;
+    border: 2px solid black;
+
+}
+
+#suggestiontitle2{
+    height: 50px;
+    width: 150px;
+    background-color: white;
+    border: 2px solid black;
+    
+}
+
+#suggestiontitle3{
+    height: 50px;
+    width: 150px;
+    background-color: white;
+    border: 2px solid black;
+    
+}
+
+#suggestiontitle4{
+    height: 50px;
+    width: 150px;
+    background-color: white;
+    border: 2px solid black;
+    
 }
 
 h1 {
