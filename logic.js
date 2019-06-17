@@ -14,27 +14,26 @@ function omdbSearch() {
         url: searchUrl,
         method: "GET"
     }).then(function (response) {
-        var results = response.data;
         console.log(response);
 
              
-            var poster = results.poster.url;
+            var poster = response.Poster;
+            console.log(poster);
             var moviePoster = $("#movie-poster");
                 moviePoster.attr("src", poster);
 
-            var title = results.title;
-            var movieTitle = $("#movie-title").text("Title: " + title);  
+            var title = response.Title;
+            $("#movie-title").text("Title: " + title);  
 
-            var actors = results.actors;
-            var movieActors = $("movie-actors").text("Actors: " + actors);
+            var actors = response.Actors;
+            $("#movie-actors").text("Actors: " + actors);
 
-            var year = results.year;
-            var movieYear = $("#movie-year").text("Year: " + year);
+            var year = response.Year;
+            $("#movie-year").text("Year: " + year);
 
-            $("#movie-row").prepend(moviePoster);
-            $("#movie-row").prepend(movieTitle);
-            $("#movie-row").prepend(movieActors);
-            $("#movie-row").prepend(movieYear);
+            var plot = response.Plot;
+            $("#movie-plot").text("Plot: " + plot);
+
 
     });
 }
