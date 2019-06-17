@@ -21,6 +21,7 @@ function omdbSearch() {
             console.log(poster);
             var moviePoster = $("#movie-poster");
                 moviePoster.attr("src", poster);
+                
 
             var title = response.Title;
             $("#movie-title").text("Title: " + title);  
