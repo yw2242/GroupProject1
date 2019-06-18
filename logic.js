@@ -182,12 +182,11 @@ function redditSearch() {
 }
 
 function displayReddit(response) {
-    $("#reddit-results-row").empty();
 
     //This variable keeps track of the # of posts we've added
     var postCount = 0;
 
-    //While the number of posts is less than 5...
+    //While the number of posts is less than 9...
     while (postCount < 9) {
 
         //Run this for each function that will append the reddit image, link and title to the page
@@ -264,12 +263,13 @@ function displayReddit(response) {
 
 // On click search button...
 $("#submit-btn").on("click", function () {
+    $("#reddit-results-row").empty();
     event.preventDefault();
 
     keyword = $("#search-field").val();
-    // keyword = keyword.replace(" ", "+");
+    keyword = keyword.replace(" ", "+");
     
-    window.location.href = 'results.html?title=' + keyword;
+    // window.location.href = 'results.html?title=' + keyword;
     //For Testing...
     omdbSearch();
     redditSearch();
@@ -280,12 +280,11 @@ $("#submit-btn").on("click", function () {
 
 
 // After clicking a movie...
-
-$("#").on("click", function () {
+$(".search-content-div").on("click", function () {
     event.preventDefault();
 
-    //Need something that will grab the movie's title
-    keyword = $("#search-input").val();
+    //Need something that will grab the movie's title data
+    keyword = $(this).attr("data-name"); //Need to call this later in the search function
 
     window.location.href = 'movie.html?title=' + keyword;
 
