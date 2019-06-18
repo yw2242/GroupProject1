@@ -205,7 +205,7 @@ $("#submit-btn").on("click", function () {
 
 // After clicking a movie...
 
-$("#").on("click", function () {
+$(".search-result").on("click", function () {
     event.preventDefault();
 
     keyword = $("#search-input").val();
