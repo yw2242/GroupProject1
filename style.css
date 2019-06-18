@@ -77,6 +77,11 @@ body {
   width: 300px;
 }
 
+#search-content-div {
+  margin-left: 100px;
+  margin-top: 50px;
+}
+
 #brandcontainer {
   width: 200px;
   height: 55px;
@@ -204,13 +209,6 @@ h1 {
   text-align: center;
   color: white;
   background-color: gray;
-}
-
-#attraction-col-header {
-  text-align: center;
-  color: white;
-  background-color: gray;
-  height: 200px;
 }
 
 /* Results Page Start */

@@ -54,17 +54,29 @@ for(var i = 0; i < mainPagePosters.length; i++) {
     }).then(function (response) {
         console.log(response);
         
-
-        for (var j = 0; j < response.length; j++) {
+        var search = response.Search;
+        for (var j = 0; j < search.length; j++) {
+            
             var total = [];
-            total.push(response.Title);
+            total.push(response.Search[j].Title);
+
+            var newTitle = $("<h4>");
+            var newRow = $("<div class='row search-result'>");
+            // newTitle.addClass("search-result");
+            newTitle.attr(response.Search[j].Title);
+            newTitle.text(response.Search[j].Title);
+
+            newRow.append(newTitle);
+            $("#search-content-div").append(newRow);
+
+            
+        
 
 
-            $("#result-1").text(total[0]);
-            $("#result-2").text(total[1]);
-            $("#result-3").text(total[2]);
-            $("#result-4").text(total[3]);
+            console.log(response.Search[j].Title);
     
+        $("#search-input").val("");
+
         }
        
     })
@@ -196,12 +208,11 @@ function redditSearch() {
 }
 
 function displayReddit(response) {
-    $("#reddit-results-row").empty();
 
     //This variable keeps track of the # of posts we've added
     var postCount = 0;
 
-    //While the number of posts is less than 5...
+    //While the number of posts is less than 9...
     while (postCount < 9) {
 
         //Run this for each function that will append the reddit image, link and title to the page
@@ -278,15 +289,21 @@ function displayReddit(response) {
 
 // On click search button...
 $("#submit-btn").on("click", function () {
+    $("#reddit-results-row").empty();
     event.preventDefault();
 
     keyword = $("#search-field").val();
-    // keyword = keyword.replace(" ", "+");
+    keyword = keyword.replace(" ", "+");
     
-    window.location.href = 'results.html?title=' + keyword;
-    //For Testing...
-    omdbSearch();
-    redditSearch();
+    // window.location.href = 'results.html?title=' + keyword;
+    // console.log(window.location.href);
+
+
+    // //For Testing...
+    // omdbSearch();
+    // redditSearch();
+
+    searchResult();
 
 });
 
@@ -295,13 +312,14 @@ $("#submit-btn").on("click", function () {
 
 // After clicking a movie...
 
-$(".").on("click", function (event) {
+$(".search-result").on("click", function () {
     event.preventDefault();
-
+    console.log("clicked!");
     //Need something that will grab the movie's title
-    keyword = $("#search-input").val();
+    keyword = $(this).val().trim();
+    console.log(keyword);
 
-    window.location.href = 'movie.html?title=' + keyword;
+    // window.location.href = 'movie.html?title=' + keyword;
 
     omdbSearch();
     redditSearch();
