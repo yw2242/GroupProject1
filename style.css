@@ -67,6 +67,11 @@ body {
   width: 300px;
 }
 
+#search-content-div {
+  margin-left: 100px;
+  margin-top: 50px;
+}
+
 #brandcontainer {
   width: 200px;
   height: 55px;

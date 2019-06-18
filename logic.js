@@ -31,7 +31,7 @@ function searchResult() {
 
             console.log(response.Search[j].Title);
     
-        // $("#search-input").val("");
+        $("#search-input").val("");
 
         }
        
