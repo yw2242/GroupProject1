@@ -8,6 +8,16 @@ body {
   color: white;
 }
 
+#main-body {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.poster-style {
+  margin: 10px 0;
+}
+
 .container-movie-page {
   background: rgba(0, 0, 0, 0.603);
   box-shadow: 1px 1px 1px 2px black;
@@ -198,13 +208,6 @@ h1 {
   text-align: center;
   color: white;
   background-color: navy;
-}
-
-#attraction-col-header {
-  text-align: center;
-  color: white;
-  background-color: gray;
-  height: 200px;
 }
 
 /* Results Page Start */
