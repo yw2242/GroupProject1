@@ -1,7 +1,27 @@
 // Comment everything you code!!
 
 var keyword = "";
+var movieKey = "eb91f19f";
+var mainPagePosters = ["300", "John Wick", "Crazy Rich Asians", "Gladiator", "I Am Legend", "Lord of the Rings"];
+var movie;
 
+for(var i = 0; i < mainPagePosters.length; i++) {
+    var searchUrl = "https://www.omdbapi.com/?apikey=" + movieKey + "&t=" + mainPagePosters[i] + "&plot=full&r=json";
+ 
+    $.ajax({
+        url: searchUrl,
+        method: "GET"
+    }).then(function (response) {
+
+        console.log(response.Poster);
+
+        var poster = $("<a>");
+
+        poster.attr("href", "movie.html");
+
+        var posterImg = $("<img>");
+
+        posterImg.attr("src", response.Poster);
 function searchResult() {
     var movieKey = "eb91f19f";
     var resultURL = "https://www.omdbapi.com/?apikey=" + movieKey + "&s=" + keyword + "&plot=full&r=json";
@@ -41,7 +61,89 @@ function searchResult() {
 }
 
 
+        posterImg.attr("data-poster", response.Title);
 
+        posterImg.addClass("poster-style");
+
+        poster.append(posterImg);
+    
+        $("#main-body").append(poster);
+
+    });
+
+}
+
+$(document).on("click", ".poster-style", function() {
+    // var title = $(this).data-poster;
+    console.log($(this).attr("data-poster"));
+
+    var posterTitle = $(this).attr("data-poster");
+
+    omdbSearch(posterTitle);
+
+    // omdbSearch(title)
+})
+
+// function getMovieInfo(){
+   
+//     var searchUrl = "https://www.omdbapi.com/?apikey=" + movieKey + "&t=" + "300" + "&plot=full&r=json";
+ 
+//     $.ajax({
+//         url: searchUrl,
+//         method: "GET"
+//     }).then(function (response) {
+//         // var poster = response.Poster;
+//         // console.log(poster);
+//         // var moviePoster = $(".movieposters");
+//         // moviePoster.attr("src", poster);
+//         console.log(response.Poster)
+
+//         for(var i = 0; i < mainPagePosters.length; i++) {
+//             var poster = $("<img>");
+//             poster.attr("src", response.Poster);
+//             $("#main-body").append(poster);
+    
+//         }
+//         // var poster = $("<img>");
+//         // poster.attr("src", response.Poster);
+//         // $("#main-body").append(poster);
+        
+        
+
+
+//     });
+// }
+
+// getMovieInfo();
+
+// function mainpageOpen() {
+//     // var movieKey = "eb91f19f";
+//     // var searchUrl = "https://www.omdbapi.com/?apikey=" + movieKey + "&t=" + "300" + "&plot=full&r=json";
+//     // var mainPagePosters = ["300", "John Wick", "Crazy Rich Asians", "Gladiator"];
+//     // var movieTitle = 0;
+    
+    
+//     // // $.ajax({
+//     // //     url: searchUrl,
+//     // //     method: "GET"
+//     // // }).then(function (response) {
+//     // //     console.log(response)
+//     // //     // for(i = 0; i < mainPagePosters.length; i++){
+//         // var poster = response.Poster;
+//         //     console.log(poster);
+//         //     var moviePoster = $(".movieposters");
+//         //         moviePoster.attr("img", searchUrl);
+//     //     // }
+//     // });
+//     for(var i = 0; i < mainPagePosters.length; i++){
+//         getMovieInfo(mainPagePosters[i]);
+       
+
+
+//     }
+// }
+
+// mainpageOpen();
 // This function searches OMDB for the keyword
 function omdbSearch() {
     //OMDB Api Key
@@ -92,12 +194,11 @@ function redditSearch() {
 }
 
 function displayReddit(response) {
-    $("#reddit-results-row").empty();
 
     //This variable keeps track of the # of posts we've added
     var postCount = 0;
 
-    //While the number of posts is less than 5...
+    //While the number of posts is less than 9...
     while (postCount < 9) {
 
         //Run this for each function that will append the reddit image, link and title to the page
@@ -174,10 +275,11 @@ function displayReddit(response) {
 
 // On click search button...
 $("#submit-btn").on("click", function () {
+    $("#reddit-results-row").empty();
     event.preventDefault();
 
     keyword = $("#search-field").val();
-    // keyword = keyword.replace(" ", "+");
+    keyword = keyword.replace(" ", "+");
     
     // window.location.href = 'results.html?title=' + keyword;
     // console.log(window.location.href);

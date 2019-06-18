@@ -4,6 +4,16 @@ body {
     background-size: cover;
 }
 
+#main-body {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.poster-style {
+  margin: 10px 0;
+}
+
 .container-movie-page {
   background-color: grey;
   border-color: red;
@@ -199,13 +209,6 @@ h1 {
   text-align: center;
   color: white;
   background-color: gray;
-}
-
-#attraction-col-header {
-  text-align: center;
-  color: white;
-  background-color: gray;
-  height: 200px;
 }
 
 /* Results Page Start */
