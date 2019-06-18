@@ -1,20 +1,25 @@
 body {
-    width: 100%;
-    background: url(https://st2.depositphotos.com/1780485/10917/i/950/depositphotos_109178938-stock-photo-background-of-blue-brick-wall.jpg) no-repeat;
-    background-size: cover;
+  width: 100%;
+  /* background: url(images/white-texture-geometric-abstract-triangle-seamless-loop_hdesm7kp9z_thumbnail-full01.png); */
+  background-size: cover;
+  background-repeat: repeat;
+  background-size: 500px;
+  background-color: white; 
+  color: white;
 }
 
 .container-movie-page {
-  background-color: grey;
-  border-color: red;
+  background: rgba(0, 0, 0, 0.603);
+  box-shadow: 1px 1px 1px 2px black;
   width: 90%;
+  border-radius: 20px;
 }
 
 @media (min-width: 1200px) {
   .container {
     max-width: 1209px;
   }
-}  
+}
 
 .navbar {
   width: 600px;
@@ -83,30 +88,27 @@ body {
   padding-top: 5px;
 }
 
-#brandcontainer{
-    width: 200px;
-    height: 55px;
-    float: left;
-    text-align: center;
-    padding-top: 8px;
-    background: black;
-    border-radius: 25px;
-   
+#brandcontainer {
+  width: 200px;
+  height: 55px;
+  float: left;
+  text-align: center;
+  padding-top: 8px;
+  background: black;
+  border-radius: 25px;
 }
 
-    
-
-h3{
-    color: white;
+h3 {
+  color: white;
 }
 
-.topsuggestion{
-    background: black;
-    border-radius: 25px;
-    width: 250px;
-    height: 100;
-    text-align: center;
-    padding-top: 5px;
+.topsuggestion {
+  background: black;
+  border-radius: 25px;
+  width: 250px;
+  height: 100;
+  text-align: center;
+  padding-top: 5px;
 }
 .movieposters {
   display: flex;
@@ -188,12 +190,14 @@ h1 {
 
 .header-space {
   margin-top: 40px;
+  padding-left: 5%;
+  padding-top: 15px;
 }
 
 .footer {
   text-align: center;
   color: white;
-  background-color: gray;
+  background-color: navy;
 }
 
 #attraction-col-header {
@@ -219,11 +223,13 @@ h1 {
 
 .reddit-img {
   width: 100%;
-  min-width: 300px;
+  height: 300px;
+  min-width: 400px;
   overflow: auto;
   clear: both;
   border-radius: 10px;
-  box-shadow: 20px 20px 50px 10px pink;
+  box-shadow: 1px 1px 1px 2px navy;
+  margin-left: 100%;
 }
 
 .reddit-result-col {
@@ -234,4 +240,11 @@ h1 {
 .post-tag {
   width: 560px;
   margin: 8px;
+  background-color: rgba(9, 0, 138, 0.603);
+  border-radius: 5px;
+  color: white;
+}
+
+#movie-poster {
+    margin: 10px 10px 10px 40px;
 }

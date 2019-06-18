@@ -142,7 +142,7 @@ function displayReddit(response) {
 
 // On click search button...
 $("#submit-btn").on("click", function () {
-    // $("reddit-results-row").empty();
+    $("#reddit-results-row").empty();
     event.preventDefault();
 
     keyword = $("#search-field").val();
