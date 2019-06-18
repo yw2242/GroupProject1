@@ -22,7 +22,29 @@ for(var i = 0; i < mainPagePosters.length; i++) {
         var posterImg = $("<img>");
 
         posterImg.attr("src", response.Poster);
-function searchResult() {
+
+        posterImg.attr("data-poster", response.Title);
+
+        posterImg.addClass("poster-style");
+
+        poster.append(posterImg);
+    
+        $("#main-body").append(poster);
+
+    });
+
+    $(document).on("click", ".poster-style", function() {
+        // var title = $(this).data-poster;
+        console.log($(this).attr("data-poster"));
+    
+        var posterTitle = $(this).attr("data-poster");
+    
+        omdbSearch(posterTitle);
+    
+        // omdbSearch(title)
+    });
+
+    function searchResult() {
     var movieKey = "eb91f19f";
     var resultURL = "https://www.omdbapi.com/?apikey=" + movieKey + "&s=" + keyword + "&plot=full&r=json";
 
@@ -61,28 +83,20 @@ function searchResult() {
 }
 
 
-        posterImg.attr("data-poster", response.Title);
-
-        posterImg.addClass("poster-style");
-
-        poster.append(posterImg);
-    
-        $("#main-body").append(poster);
-
-    });
+       
 
 }
 
-$(document).on("click", ".poster-style", function() {
-    // var title = $(this).data-poster;
-    console.log($(this).attr("data-poster"));
+// $(document).on("click", ".poster-style", function() {
+//     // var title = $(this).data-poster;
+//     console.log($(this).attr("data-poster"));
 
-    var posterTitle = $(this).attr("data-poster");
+//     var posterTitle = $(this).attr("data-poster");
 
-    omdbSearch(posterTitle);
+//     omdbSearch(posterTitle);
 
-    // omdbSearch(title)
-})
+//     // omdbSearch(title)
+// })
 
 // function getMovieInfo(){
    
