@@ -2,16 +2,6 @@
 
 var keyword = "";
 
-
-if (window.location.search) {
-    keyword = window.location.search.split("=")[1];
-    $("#search-field").val(keyword);
-    omdbSearch();
-    redditSearch();
-}
-
-// WWW.WER.com/asdf/asdf/asdf?asdf=asdf&
-
 function searchResult() {
     var movieKey = "eb91f19f";
     var resultURL = "https://www.omdbapi.com/?apikey=" + movieKey + "&s=" + keyword + "&plot=full&r=json";
@@ -36,17 +26,11 @@ function searchResult() {
         }
        
     })
-
 }
 
 
 
-<<<<<<< HEAD
-=======
-
->>>>>>> refs/remotes/origin/megan
 // This function searches OMDB for the keyword
-
 function omdbSearch() {
     //OMDB Api Key
     var movieKey = "eb91f19f";
@@ -175,10 +159,6 @@ function displayReddit(response) {
 
 
 // On click search button...
-
-
-
-
 $("#submit-btn").on("click", function () {
     // $("reddit-results-row").empty();
     event.preventDefault();
@@ -187,14 +167,7 @@ $("#submit-btn").on("click", function () {
     keyword = keyword.replace(" ", "+");
     var currentFile = window.location.pathname.split("/").pop();
     
-    if(currentFile === "movie.html") {
-        omdbSearch();
-        redditSearch();
-    }
-    else {
-        window.location.href = 'movie.html?title=' + keyword;
-    }
-
+    window.location.href = 'results.html?title=' + keyword;
 
 });
 
@@ -206,7 +179,10 @@ $("#submit-btn").on("click", function () {
 $("#").on("click", function () {
     event.preventDefault();
 
+    //Need something that will grab the movie's title
     keyword = $("#search-input").val();
+
+    window.location.href = 'movie.html?title=' + keyword;
 
     omdbSearch();
     redditSearch();
