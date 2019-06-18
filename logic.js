@@ -44,7 +44,7 @@ for(var i = 0; i < mainPagePosters.length; i++) {
         // omdbSearch(title)
     });
 
-    searchResult();
+    // searchResult();
 }
 
 function searchResult() {
@@ -74,7 +74,7 @@ function searchResult() {
 
             console.log(response.Search[j].Title);
     
-        $("#search-input").val("");
+        // $("#search-input").val("");
 
         }
        
@@ -296,8 +296,8 @@ $("#submit-btn").on("click", function () {
 
 
     // //For Testing...
-    // omdbSearch();
-    // redditSearch();
+    omdbSearch();
+    redditSearch();
 
     searchResult();
 

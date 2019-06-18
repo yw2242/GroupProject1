@@ -82,11 +82,6 @@ body {
   width: 300px;
 }
 
-#search-content-div {
-  margin-left: 100px;
-  margin-top: 50px;
-}
-
 #brandcontainer {
   width: 200px;
   height: 55px;
@@ -255,4 +250,26 @@ h1 {
 
 #movie-poster {
     margin: 10px 10px 10px 40px;
+}
+
+/* Search Page Start */
+.search-result-container {
+  background-color: black;
+  margin-top: 20px;
+  padding-bottom: 20px;
+  border-radius: 20px;
+}
+
+#search-header {
+  padding-top: 10px;
+}
+
+#search-content-div {
+  color: white;
+  margin-left: 90px;
+  margin-top: 34px;
+}
+
+.search-result:hover {
+  color: #ccc;
 }
