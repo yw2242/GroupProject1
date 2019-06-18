@@ -32,6 +32,12 @@ function searchResult() {
             $("#result-2").text(total[1]);
             $("#result-3").text(total[2]);
             $("#result-4").text(total[3]);
+            $("#result-5").text(total[4]);
+            $("#result-6").text(total[5]);
+            $("#result-7").text(total[6]);
+            $("#result-8").text(total[7]);
+
+            console.log(total[0]);
     
         }
        
@@ -41,10 +47,6 @@ function searchResult() {
 
 
 
-<<<<<<< HEAD
-=======
-
->>>>>>> refs/remotes/origin/megan
 // This function searches OMDB for the keyword
 
 function omdbSearch() {
@@ -184,7 +186,7 @@ $("#submit-btn").on("click", function () {
     event.preventDefault();
 
     keyword = $("#search-field").val();
-    keyword = keyword.replace(" ", "+");
+    // keyword = keyword.replace(" ", "+");
     var currentFile = window.location.pathname.split("/").pop();
     
     if(currentFile === "movie.html") {
