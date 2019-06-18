@@ -239,7 +239,7 @@ function displayReddit(response) {
                 //New div and paragraph information
                 var newp = $("<p class='post-tag'> Title: " + title + "<br></br> Subreddit: " + subreddit + "</p>");
                 var newa = $("<a href=" + imgURL + ">")
-                var newDiv = $("<div class='col-lg-3 reddit-result-col'>");
+                var newDiv = $("<div class='col-lg-6 reddit-result-col'>");
                 newDiv.attr("id", 'div-result' + count);
 
                 // Append(image) to reddit results row
