@@ -22,32 +22,6 @@ for(var i = 0; i < mainPagePosters.length; i++) {
         var posterImg = $("<img>");
 
         posterImg.attr("src", response.Poster);
-function searchResult() {
-    var movieKey = "eb91f19f";
-    var resultURL = "https://www.omdbapi.com/?apikey=" + movieKey + "&s=" + keyword + "&plot=full&r=json";
-
-    $.ajax({
-        url: resultURL,
-        method: "GET"
-    }).then(function (response) {
-        console.log(response);
-        
-
-        for (var j = 0; j < response.length; j++) {
-            var total = [];
-            total.push(response.Title);
-
-
-            $("#result-1").text(total[0]);
-            $("#result-2").text(total[1]);
-            $("#result-3").text(total[2]);
-            $("#result-4").text(total[3]);
-    
-        }
-       
-    })
-}
-
 
         posterImg.attr("data-poster", response.Title);
 
@@ -59,18 +33,70 @@ function searchResult() {
 
     });
 
+    $(document).on("click", ".poster-style", function() {
+        // var title = $(this).data-poster;
+        console.log($(this).attr("data-poster"));
+    
+        var posterTitle = $(this).attr("data-poster");
+    
+        omdbSearch(posterTitle);
+    
+        // omdbSearch(title)
+    });
+
+    function searchResult() {
+    var movieKey = "eb91f19f";
+    var resultURL = "https://www.omdbapi.com/?apikey=" + movieKey + "&s=" + keyword + "&plot=full&r=json";
+
+    $.ajax({
+        url: resultURL,
+        method: "GET"
+    }).then(function (response) {
+        console.log(response);
+        
+        var search = response.Search;
+        for (var j = 0; j < search.length; j++) {
+            
+            var total = [];
+            total.push(response.Search[j].Title);
+
+            var newTitle = $("<h4>");
+            var newRow = $("<div class='row search-result'>");
+            // newTitle.addClass("search-result");
+            newTitle.attr(response.Search[j].Title);
+            newTitle.text(response.Search[j].Title);
+
+            newRow.append(newTitle);
+            $("#search-content-div").append(newRow);
+
+            
+        
+
+
+            console.log(response.Search[j].Title);
+    
+        $("#search-input").val("");
+
+        }
+       
+    })
 }
 
-$(document).on("click", ".poster-style", function() {
-    // var title = $(this).data-poster;
-    console.log($(this).attr("data-poster"));
 
-    var posterTitle = $(this).attr("data-poster");
+       
 
-    omdbSearch(posterTitle);
+}
 
-    // omdbSearch(title)
-})
+// $(document).on("click", ".poster-style", function() {
+//     // var title = $(this).data-poster;
+//     console.log($(this).attr("data-poster"));
+
+//     var posterTitle = $(this).attr("data-poster");
+
+//     omdbSearch(posterTitle);
+
+//     // omdbSearch(title)
+// })
 
 // function getMovieInfo(){
    
@@ -270,9 +296,14 @@ $("#submit-btn").on("click", function () {
     keyword = keyword.replace(" ", "+");
     
     // window.location.href = 'results.html?title=' + keyword;
-    //For Testing...
-    omdbSearch();
-    redditSearch();
+    // console.log(window.location.href);
+
+
+    // //For Testing...
+    // omdbSearch();
+    // redditSearch();
+
+    searchResult();
 
 });
 
@@ -280,13 +311,15 @@ $("#submit-btn").on("click", function () {
 
 
 // After clicking a movie...
-$(".search-content-div").on("click", function () {
+
+$(".search-result").on("click", function () {
     event.preventDefault();
+    console.log("clicked!");
+    //Need something that will grab the movie's title
+    keyword = $(this).val().trim();
+    console.log(keyword);
 
-    //Need something that will grab the movie's title data
-    keyword = $(this).attr("data-name"); //Need to call this later in the search function
-
-    window.location.href = 'movie.html?title=' + keyword;
+    // window.location.href = 'movie.html?title=' + keyword;
 
     omdbSearch();
     redditSearch();
