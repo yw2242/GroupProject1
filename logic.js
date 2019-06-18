@@ -303,10 +303,10 @@ $("#submit-btn").on("click", function () {
 
 
     // //For Testing...
-    // omdbSearch();
-    // redditSearch();
+    omdbSearch();
+    redditSearch();
 
-    searchResult();
+    // searchResult();
 
 });
 
