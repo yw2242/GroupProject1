@@ -80,6 +80,8 @@ function redditSearch() {
 }
 
 function displayReddit(response) {
+    $("#reddit-results-row").empty();
+
     //This variable keeps track of the # of posts we've added
     var postCount = 0;
 
@@ -160,14 +162,15 @@ function displayReddit(response) {
 
 // On click search button...
 $("#submit-btn").on("click", function () {
-    // $("reddit-results-row").empty();
     event.preventDefault();
 
     keyword = $("#search-field").val();
-    keyword = keyword.replace(" ", "+");
-    var currentFile = window.location.pathname.split("/").pop();
+    // keyword = keyword.replace(" ", "+");
     
     window.location.href = 'results.html?title=' + keyword;
+    //For Testing...
+    omdbSearch();
+    redditSearch();
 
 });
 
