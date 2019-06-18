@@ -1,20 +1,124 @@
 // Comment everything you code!!
 
 var keyword = "";
+var movieKey = "eb91f19f";
+var mainPagePosters = ["300", "John Wick", "Crazy Rich Asians", "Gladiator", "I Am Legend", "Lord of the Rings"];
+var movie;
+
+for(var i = 0; i < mainPagePosters.length; i++) {
+    var searchUrl = "https://www.omdbapi.com/?apikey=" + movieKey + "&t=" + mainPagePosters[i] + "&plot=full&r=json";
+ 
+    $.ajax({
+        url: searchUrl,
+        method: "GET"
+    }).then(function (response) {
+
+        console.log(response.Poster);
+
+        var poster = $("<a>");
+
+        poster.attr("href", "movie.html");
+
+        var posterImg = $("<img>");
+
+        posterImg.attr("src", response.Poster);
+
+        posterImg.attr("data-poster", response.Title);
+
+        posterImg.addClass("poster-style");
+
+        poster.append(posterImg);
+    
+        $("#main-body").append(poster);
+
+    });
+
+}
+
+$(document).on("click", ".poster-style", function() {
+    // var title = $(this).data-poster;
+    console.log($(this).attr("data-poster"));
+
+    var posterTitle = $(this).attr("data-poster");
+
+    omdbSearch(posterTitle);
+
+    // omdbSearch(title)
+})
+
+// function getMovieInfo(){
+   
+//     var searchUrl = "https://www.omdbapi.com/?apikey=" + movieKey + "&t=" + "300" + "&plot=full&r=json";
+ 
+//     $.ajax({
+//         url: searchUrl,
+//         method: "GET"
+//     }).then(function (response) {
+//         // var poster = response.Poster;
+//         // console.log(poster);
+//         // var moviePoster = $(".movieposters");
+//         // moviePoster.attr("src", poster);
+//         console.log(response.Poster)
+
+//         for(var i = 0; i < mainPagePosters.length; i++) {
+//             var poster = $("<img>");
+//             poster.attr("src", response.Poster);
+//             $("#main-body").append(poster);
+    
+//         }
+//         // var poster = $("<img>");
+//         // poster.attr("src", response.Poster);
+//         // $("#main-body").append(poster);
+        
+        
 
 
+//     });
+// }
 
+// getMovieInfo();
+
+// function mainpageOpen() {
+//     // var movieKey = "eb91f19f";
+//     // var searchUrl = "https://www.omdbapi.com/?apikey=" + movieKey + "&t=" + "300" + "&plot=full&r=json";
+//     // var mainPagePosters = ["300", "John Wick", "Crazy Rich Asians", "Gladiator"];
+//     // var movieTitle = 0;
+    
+    
+//     // // $.ajax({
+//     // //     url: searchUrl,
+//     // //     method: "GET"
+//     // // }).then(function (response) {
+//     // //     console.log(response)
+//     // //     // for(i = 0; i < mainPagePosters.length; i++){
+//         // var poster = response.Poster;
+//         //     console.log(poster);
+//         //     var moviePoster = $(".movieposters");
+//         //         moviePoster.attr("img", searchUrl);
+//     //     // }
+//     // });
+//     for(var i = 0; i < mainPagePosters.length; i++){
+//         getMovieInfo(mainPagePosters[i]);
+       
+
+
+//     }
+// }
+
+// mainpageOpen();
 // This function searches OMDB for the keyword
-function omdbSearch() {
+function omdbSearch(posterTitle) {
     //OMDB Api Key
     var movieKey = "eb91f19f";
     var searchUrl = "https://www.omdbapi.com/?apikey=" + movieKey + "&t=" + keyword + "&plot=full&r=json";
-
+    
     $.ajax({
         url: searchUrl,
         method: "GET"
     }).then(function (response) {
         console.log(response);
+
+
 
              
             var poster = response.Poster;
