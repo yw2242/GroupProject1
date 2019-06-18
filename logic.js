@@ -19,13 +19,15 @@ function searchResult() {
             total.push(response.Search[j].Title);
 
             var newTitle = $("<h4>");
-            var newRow = $("<div class='row'>");
-            newTitle.addClass("search-result");
+            var newRow = $("<div class='row search-result'>");
+            // newTitle.addClass("search-result");
             newTitle.attr(response.Search[j].Title);
             newTitle.text(response.Search[j].Title);
 
             newRow.append(newTitle);
             $("#search-content-div").append(newRow);
+
+            
         
 
 
@@ -196,11 +198,12 @@ $("#submit-btn").on("click", function () {
 
 $(".search-result").on("click", function () {
     event.preventDefault();
-
+    console.log("clicked!");
     //Need something that will grab the movie's title
-    keyword = $("#search-input").val();
+    keyword = $(this).val().trim();
+    console.log(keyword);
 
-    window.location.href = 'movie.html?title=' + keyword;
+    // window.location.href = 'movie.html?title=' + keyword;
 
     omdbSearch();
     redditSearch();
