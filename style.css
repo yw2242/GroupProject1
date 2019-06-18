@@ -196,13 +196,6 @@ h1 {
   background-color: gray;
 }
 
-#attraction-col-header {
-  text-align: center;
-  color: white;
-  background-color: gray;
-  height: 200px;
-}
-
 /* Results Page Start */
 #movie-row {
   padding: 10px 0px;
