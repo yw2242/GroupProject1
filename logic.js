@@ -12,23 +12,27 @@ function searchResult() {
     }).then(function (response) {
         console.log(response);
         
-
-        for (var j = 0; j < response.length; j++) {
+        var search = response.Search;
+        for (var j = 0; j < search.length; j++) {
+            
             var total = [];
-            total.push(response.Title);
+            total.push(response.Search[j].Title);
+
+            var newTitle = $("<h4>");
+            var newRow = $("<div class='row'>");
+            newTitle.addClass("search-result");
+            newTitle.attr(response.Search[j].Title);
+            newTitle.text(response.Search[j].Title);
+
+            newRow.append(newTitle);
+            $("#search-content-div").append(newRow);
+        
 
 
-            $("#result-1").text(total[0]);
-            $("#result-2").text(total[1]);
-            $("#result-3").text(total[2]);
-            $("#result-4").text(total[3]);
-            $("#result-5").text(total[4]);
-            $("#result-6").text(total[5]);
-            $("#result-7").text(total[6]);
-            $("#result-8").text(total[7]);
-
-            console.log(total[0]);
+            console.log(response.Search[j].Title);
     
+        // $("#search-input").val("");
+
         }
        
     })
@@ -173,10 +177,15 @@ $("#submit-btn").on("click", function () {
     keyword = $("#search-field").val();
     // keyword = keyword.replace(" ", "+");
     
-    window.location.href = 'results.html?title=' + keyword;
-    //For Testing...
-    omdbSearch();
-    redditSearch();
+    // window.location.href = 'results.html?title=' + keyword;
+    // console.log(window.location.href);
+
+
+    // //For Testing...
+    // omdbSearch();
+    // redditSearch();
+
+    searchResult();
 
 });
 
