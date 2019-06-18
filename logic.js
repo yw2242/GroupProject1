@@ -187,15 +187,15 @@ $("#submit-btn").on("click", function () {
 
     keyword = $("#search-field").val();
     // keyword = keyword.replace(" ", "+");
-    var currentFile = window.location.pathname.split("/").pop();
+    // var currentFile = window.location.pathname.split("/").pop();
     
-    if(currentFile === "movie.html") {
-        omdbSearch();
-        redditSearch();
-    }
-    else {
-        window.location.href = 'movie.html?title=' + keyword;
-    }
+    // if(currentFile === "movie.html") {
+    //     omdbSearch();
+    //     redditSearch();
+    // }
+    // else {
+    //     window.location.href = 'movie.html?title=' + keyword;
+    // }
 
 
 });
