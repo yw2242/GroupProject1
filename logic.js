@@ -19,6 +19,8 @@ for(var i = 0; i < mainPagePosters.length; i++) {
 
         poster.attr("href", "movie.html");
 
+        poster.attr("id", response.Title)
+
         var posterImg = $("<img>");
 
         posterImg.attr("src", response.Poster);
@@ -32,6 +34,7 @@ for(var i = 0; i < mainPagePosters.length; i++) {
         $("#main-body").append(poster);
 
     });
+}
 
     $(document).on("click", ".poster-style", function() {
         // var title = $(this).data-poster;
@@ -85,7 +88,7 @@ for(var i = 0; i < mainPagePosters.length; i++) {
 
        
 
-}
+
 
 // $(document).on("click", ".poster-style", function() {
 //     // var title = $(this).data-poster;
