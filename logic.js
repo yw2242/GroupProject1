@@ -5,6 +5,17 @@ var movieKey = "eb91f19f";
 var mainPagePosters = ["300", "John Wick", "Crazy Rich Asians", "Gladiator", "I Am Legend", "Lord of the Rings"];
 var movie;
 
+// var currentFile = window.location.pathname.split("/").pop();
+
+if (window.location.search) {
+   keyword = window.location.search.split("=")[1];
+   
+   omdbSearch();
+   redditSearch();
+}
+
+
+
 for(var i = 0; i < mainPagePosters.length; i++) {
     var searchUrl = "https://www.omdbapi.com/?apikey=" + movieKey + "&t=" + mainPagePosters[i] + "&plot=full&r=json";
  
@@ -17,8 +28,10 @@ for(var i = 0; i < mainPagePosters.length; i++) {
 
         var poster = $("<a>");
 
-        poster.attr("href", "movie.html");
+        poster.attr("href", "movie.html?title=" + response.Title);
 
+        poster.attr("id", response.Title);
+        
         var posterImg = $("<img>");
 
         posterImg.attr("src", response.Poster);
@@ -32,17 +45,7 @@ for(var i = 0; i < mainPagePosters.length; i++) {
         $("#main-body").append(poster);
 
     });
-
-    $(document).on("click", ".poster-style", function() {
-        // var title = $(this).data-poster;
-        console.log($(this).attr("data-poster"));
-    
-        var posterTitle = $(this).attr("data-poster");
-    
-        omdbSearch(posterTitle);
-    
-        // omdbSearch(title)
-    });
+}
 
     // searchResult();
 }
@@ -81,7 +84,7 @@ function searchResult() {
     })
        
 
-}
+
 
 // $(document).on("click", ".poster-style", function() {
 //     // var title = $(this).data-poster;
@@ -261,7 +264,7 @@ function displayReddit(response) {
                 //New div and paragraph information
                 var newp = $("<p class='post-tag'> Title: " + title + "<br></br> Subreddit: " + subreddit + "</p>");
                 var newa = $("<a href=" + imgURL + ">")
-                var newDiv = $("<div class='col-lg-3 reddit-result-col'>");
+                var newDiv = $("<div class='col-lg-6 reddit-result-col'>");
                 newDiv.attr("id", 'div-result' + count);
 
                 // Append(image) to reddit results row
@@ -299,7 +302,7 @@ $("#submit-btn").on("click", function () {
     omdbSearch();
     redditSearch();
 
-    searchResult();
+    // searchResult();
 
 });
 
@@ -314,6 +317,7 @@ $(document).on("click", ".search-result", function() {
     console.log(keyword);
 
     // window.location.href = 'movie.html?title=' + keyword;
+    keyword = window.location.search
 
     // omdbSearch();
     // redditSearch();
