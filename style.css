@@ -4,6 +4,16 @@ body {
     background-size: cover;
 }
 
+#main-body {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.poster-style {
+  margin: 10px 0;
+}
+
 .container-movie-page {
   background-color: grey;
   border-color: red;
