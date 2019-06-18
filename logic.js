@@ -133,7 +133,7 @@ $(document).on("click", ".poster-style", function() {
 
 // mainpageOpen();
 // This function searches OMDB for the keyword
-function omdbSearch(posterTitle) {
+function omdbSearch() {
     //OMDB Api Key
     var movieKey = "eb91f19f";
     var searchURL = "https://www.omdbapi.com/?apikey=" + movieKey + "&t=" + keyword + "&plot=full&r=json";
