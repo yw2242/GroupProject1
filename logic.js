@@ -32,17 +32,29 @@ function searchResult() {
     }).then(function (response) {
         console.log(response);
         
-
-        for (var j = 0; j < response.length; j++) {
+        var search = response.Search;
+        for (var j = 0; j < search.length; j++) {
+            
             var total = [];
-            total.push(response.Title);
+            total.push(response.Search[j].Title);
+
+            var newTitle = $("<h4>");
+            var newRow = $("<div class='row search-result'>");
+            // newTitle.addClass("search-result");
+            newTitle.attr(response.Search[j].Title);
+            newTitle.text(response.Search[j].Title);
+
+            newRow.append(newTitle);
+            $("#search-content-div").append(newRow);
+
+            
+        
 
 
-            $("#result-1").text(total[0]);
-            $("#result-2").text(total[1]);
-            $("#result-3").text(total[2]);
-            $("#result-4").text(total[3]);
+            console.log(response.Search[j].Title);
     
+        $("#search-input").val("");
+
         }
        
     })
@@ -270,9 +282,14 @@ $("#submit-btn").on("click", function () {
     keyword = keyword.replace(" ", "+");
     
     // window.location.href = 'results.html?title=' + keyword;
-    //For Testing...
-    omdbSearch();
-    redditSearch();
+    // console.log(window.location.href);
+
+
+    // //For Testing...
+    // omdbSearch();
+    // redditSearch();
+
+    searchResult();
 
 });
 
@@ -280,13 +297,15 @@ $("#submit-btn").on("click", function () {
 
 
 // After clicking a movie...
-$(".search-content-div").on("click", function () {
+
+$(".search-result").on("click", function () {
     event.preventDefault();
+    console.log("clicked!");
+    //Need something that will grab the movie's title
+    keyword = $(this).val().trim();
+    console.log(keyword);
 
-    //Need something that will grab the movie's title data
-    keyword = $(this).attr("data-name"); //Need to call this later in the search function
-
-    window.location.href = 'movie.html?title=' + keyword;
+    // window.location.href = 'movie.html?title=' + keyword;
 
     omdbSearch();
     redditSearch();
