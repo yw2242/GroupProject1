@@ -10,10 +10,14 @@
     <!-- Links to Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+     <!-- GOOGLE FONTS    -->
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+HK&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css" />
 
     <!-- JQuery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
     <!-- Other Bootstrap links -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
@@ -31,13 +35,17 @@
                 <!-- WHERE THE TITLE IMAGE GOES -->
                 <img src="images/title-01.png" id="title-image" />
 
+                    <!-- HERE IS THE TOASTER BUTTON -->
+                    <!-- <button onclick="showToast('Please Enter A Movie')">Show Toaster</button> -->
+                    <div id="toast"></div>
+
                 <div id="searchinput">
                     <div class="input-group mb-3">
                         <input type="text" id="search-field" class="form-control" placeholder="Movie Search"
                             aria-label="Recipient's username" aria-describedby="button-addon2" />
                         <div class="input-group-append">
                             <!-- SUBMIT BUTTON -->
-                            <button class="subbutton" type="button" id="submit-btn">
+                            <button class="subbutton" type="button" id="submit-btn" onclick="showToast('Please Enter A Movie')">
                                 Submit
                             </button>
                         </div>
@@ -67,7 +75,12 @@
         </div> -->
 
         <div class="topsuggestion">
-            <h3>Top Suggestions:</h3>
+            <h3 class="ml11">
+                <span class="text-wrapper">
+                  <!-- <span class="line line1"></span> -->
+                  <span class="letters">Top Suggestions</span>
+                </span>
+              </h3>
         </div>
         <div id="main-body">
             <!-- This is where the movie posters are populated to -->
@@ -75,7 +88,7 @@
     </div>
 
     <!-- Calling our Javacript -->
-    <script type="text/javascript" src="logic.js"></script>
+    <script type="text/javascript" src="logic.js"></script>    
 </body>
 
 </html>
