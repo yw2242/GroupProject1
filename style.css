@@ -13,6 +13,7 @@ body {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
+  margin-bottom: 20px;
 }
 
 .poster-style {
@@ -23,13 +24,14 @@ body {
     -webkit-box-shadow: 0 0 5px 2px #fff;
     -moz-box-shadow: 0 0 5px 2px #fff;
     box-shadow: 0 0 5px 2px #fff;
-    margin-top: 90px;
+    margin-top: 110px;
   background: rgba(0, 0, 0, 0.3);
   width: 90%;
   border-radius: 20px;
   border-color: white;
   border-style: solid;
   border-width: 1px;
+
 }
 
 .navbar {
@@ -70,6 +72,7 @@ body {
   height: 50px;
   margin-top: 100px;
   color: black;
+  margin-bottom: 5px;
 }
 
 #searchinput {
@@ -333,9 +336,13 @@ h1 {
 }
 #title-image {
     /* box-shadow: 1px 1px 1px 2px blue; */
-    width: 300px;
-    height: 50px;
+    width: 378px;
+    height: 65px;
     color: white;
+}
+
+.header-container {
+  padding-top: 10px;
 }
 
 header {
@@ -345,6 +352,7 @@ header {
     position: fixed;
     width: 100%;
     top: 0;
+    height: 80px;
 }
 
 /* THE CSS FOR THE TOASTER BUTTON */
