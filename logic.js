@@ -9,11 +9,11 @@ var currentFile = window.location.pathname.split("/").pop();
 function showToast(text) {
     var x = document.getElementById("toast");
     x.classList.add("show");
-    x.innerHTML='Please Enter A Movie';
-    setTimeout(function(){
-      x.classList.remove("show");
-    },3000);
-  }
+    x.innerHTML = 'Please Enter A Movie';
+    setTimeout(function () {
+        x.classList.remove("show");
+    }, 3000);
+}
 
 //This function searches omdb with the keyword and populates the results page
 function searchResult() {
@@ -42,46 +42,44 @@ function searchResult() {
 }
 
 // Wrap every letter in a span
-$('.ml11 .letters').each(function(){
+$('.ml11 .letters').each(function () {
     $(this).html($(this).text().replace(/([^\x00-\x80]|\w)/g, "<span class='letter'>$&</span>"));
-  });
+});
+
 //   makes the top suggestion text pop up letter by letter
-  anime.timeline()
+anime.timeline()
     .add({
-      targets: '.ml11 .line',
-      scaleY: [0,1],
-      opacity: [0.5,1],
-      easing: "easeOutExpo",
-      duration: 1500
+        targets: '.ml11 .line',
+        scaleY: [0, 1],
+        opacity: [0.5, 1],
+        easing: "easeOutExpo",
+        duration: 1500
     })
     .add({
-      targets: '.ml11 .line',
-      translateX: [0,$(".ml11 .letters").width()],
-      easing: "easeOutExpo",
-      duration: 700,
-      delay: 400
+        targets: '.ml11 .line',
+        translateX: [0, $(".ml11 .letters").width()],
+        easing: "easeOutExpo",
+        duration: 700,
+        delay: 400
     }).add({
-      targets: '.ml11 .letter',
-      opacity: [0,1],
-      easing: "easeOutExpo",
-      duration: 600,
-      offset: '-=775',
-      delay: function(el, i) {
-        return 34 * (i+1)
-      }
+        targets: '.ml11 .letter',
+        opacity: [0, 1],
+        easing: "easeOutExpo",
+        duration: 600,
+        offset: '-=775',
+        delay: function (el, i) {
+            return 34 * (i + 1)
+        }
     }).add({
-      targets: '.ml11',
-      opacity: 1,
-      duration: 1000,
-      easing: "easeOutExpo",
-      delay: 1000
+        targets: '.ml11',
+        opacity: 1,
+        duration: 1000,
+        easing: "easeOutExpo",
+        delay: 1000
     });
 
-    // loop: true
+// loop: true
 
-
-
-   
 
 
 // This function searches OMDB for the keyword
@@ -136,7 +134,7 @@ function displayReddit(response) {
 
     // //This variable keeps track of the # of posts we've added
     var postCount = 1;
-    var postArray = [];
+    // var postArray = [];
 
     //Run this for each function that will append the reddit image, link and title to the page
     response.data.children.forEach(function (post) {
@@ -147,9 +145,9 @@ function displayReddit(response) {
             var isImage = false;
 
             function isCorrectSubreddit(subreddit) {
-                console.log(subreddit);
+                // console.log(subreddit);
                 var acceptedSubreddits = ["funny", "movies", "MovieDetails", "dankmemes", "memes", "marvelstudios", "BeAmazed", "YMS", "pics", "GetMotivated"];
-                if(acceptedSubreddits.includes(subreddit)) {
+                if (acceptedSubreddits.includes(subreddit)) {
                     return true;
                 } else {
                     return false;
@@ -287,24 +285,25 @@ $("#submit-btn").on("click", function () {
         showToast();
         // return;
     } else {
-    keyword = keyword.replace(" ", "+");
-    //Make a variable with the value equal to the last section of the url after it's split by "/"s
-    // For example, www.mywebsite.com/database/index.html?title=terminator would be split into 
-    // an array of ['www.mywebsite.com' , 'database' , 'index.html?title=terminator'] 
-    // We're grabbing the last index of this array
-    var currentFile = window.location.pathname.split("/").pop();
 
-    //If the last section of the url contains the string "movie.html" or "index.html"...
-    if (currentFile.includes("movie.html") || currentFile.includes("index.html") || currentFile === "") {
-        //Take the user to the results page, with their keyword in the query selector of the url
-        window.location.href = 'results.html?title=' + keyword;
+        keyword = keyword.replace(" ", "+");
+        //Make a variable with the value equal to the last section of the url after it's split by "/"s
+        // For example, www.mywebsite.com/database/index.html?title=terminator would be split into 
+        // an array of ['www.mywebsite.com' , 'database' , 'index.html?title=terminator'] 
+        // We're grabbing the last index of this array
+        var currentFile = window.location.pathname.split("/").pop();
+
+        //If the last section of the url contains the string "movie.html" or "index.html"...
+        if (currentFile.includes("movie.html") || currentFile.includes("index.html") || currentFile === "" || currentFile.includes("results.html")) {
+            //Take the user to the results page, with their keyword in the query selector of the url
+            window.location.href = 'results.html?title=' + keyword;
+        }
+        //If the last section of the url contains the string "results.html"...
+        // else if (currentFile.includes("results.html")) {
+        //     //Reload the results page with the new keyword in the query selector of the url
+        //     window.location.href = 'results.html?title=' + keyword;
+        // }
     }
-    //If the last section of the url contains the string "results.html"...
-    else if (currentFile.includes("results.html")) {
-        //Reload the results page with the new keyword in the query selector of the url
-        window.location.href = 'results.html?title=' + keyword;
-    }
-}
 
 });
 
@@ -317,4 +316,3 @@ $(document).on("click", ".search-result", function () {
 })
 
 
-  
