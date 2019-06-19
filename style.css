@@ -1,9 +1,9 @@
 body {
   width: 100%;
-  /* background: url(images/white-texture-geometric-abstract-triangle-seamless-loop_hdesm7kp9z_thumbnail-full01.png); */
+  background: url(images/dark\ blue\ background.jpg);
   background-size: cover;
-  background-repeat: repeat;
-  background-size: 500px;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   background-color: white; 
   color: white;
 }
@@ -19,10 +19,16 @@ body {
 }
 
 .container-movie-page {
+    -webkit-box-shadow: 0 0 5px 2px #fff;
+    -moz-box-shadow: 0 0 5px 2px #fff;
+    box-shadow: 0 0 5px 2px #fff;
+    margin-top: 90px;
   background: rgba(0, 0, 0, 0.3);
-  box-shadow: 1px 1px 1px 2px black;
   width: 90%;
   border-radius: 20px;
+  border-color: white;
+  border-style: solid;
+  border-width: 1px;
 }
 
 .navbar {
@@ -64,22 +70,21 @@ body {
   margin-top: 100px;
 }
 
-.header {
-  width: auto;
-  height: 75px;
-  border-bottom: 2px solid black;
-  padding-top: 10px;
-}
-
 #searchinput {
   float: right;
   width: 300px;
+  margin-top: 10px;
 }
 
 #search-content-div {
   margin-left: 100px;
   margin-top: 50px;
 }
+
+#search-field {
+    border-radius: 5px;
+    margin-right: 4px;
+  }
 
 #brandcontainer {
   width: 200px;
@@ -203,12 +208,6 @@ h1 {
   padding-top: 15px;
 }
 
-.footer {
-  text-align: center;
-  color: white;
-  background-color: navy;
-}
-
 /* Results Page Start */
 #movie-row {
   padding: 10px 0px;
@@ -219,19 +218,29 @@ h1 {
   padding: 10px 0px;
 }
 
-/* #reddit-results-row {
-  border: 1px solid black;
-} */
+#reddit-results-row {
+    /* background: rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0 0 5px 1px #fff;
+    -moz-box-shadow: 0 0 5px 1px #fff;
+    box-shadow: 0 0 5px 1px #fff; */
+    border-top-style: solid;
+    border-bottom-style: solid;
+    border-radius: 20px;
+    /* border-color: white; */
+    /* border-style: solid; */
+    border-width: 1px;
+}
 
 .reddit-img {
+    border-color: white;
+    border-style: solid;
+    border-width: 1px;
   width: 100%;
   height: 300px;
   min-width: 400px;
-  overflow: auto;
-  clear: both;
   border-radius: 10px;
-  box-shadow: 1px 1px 1px 2px navy;
-  margin-left: 30%;
+  /* box-shadow: 1px 1px 1px 2px gray; */
+  margin-left: 25%;
 }
 
 .reddit-result-col {
@@ -240,11 +249,12 @@ h1 {
 }
 
 .post-tag {
-  width: 580px;
-  margin: 10px;
-  background: rgba(0, 0, 0, 0.3);
-  border-radius: 5px;
+  width: 500px;
+  margin: 10px 10px 10px 15%;
   color: white;
+  /* border-bottom-style: solid;
+  border-bottom-color: black;
+  border-bottom-width: 1px; */
 }
 
 #movie-poster {
@@ -252,13 +262,19 @@ h1 {
 }
 
 #title-image {
+    /* box-shadow: 1px 1px 1px 2px blue; */
     width: 300px;
     height: 50px;
     color: white;
 }
 
 header {
-    background-color: gray; 
+    z-index: 1;
+    overflow: hidden;
+    background-color: black; 
+    position: fixed;
+    width: 100%;
+    top: 0;
 }
 
 
