@@ -2,15 +2,15 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Meme that Movie</title>
 
     <!-- Links to Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+    <link rel="stylesheet" href="style.css" />
 
     <!-- JQuery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -24,9 +24,32 @@
 </head>
 
 <body>
+    <!-- THE FIXED HEADER -->
+    <header id="movie-results-header">
+        <div class="container">
+            <div class="header">
+                <!-- WHERE THE TITLE IMAGE GOES -->
+                <img src="images/title-01.png" id="title-image" />
+
+                <div id="searchinput">
+                    <div class="input-group mb-3">
+                        <input type="text" id="search-field" class="form-control" placeholder="Movie Search"
+                            aria-label="Recipient's username" aria-describedby="button-addon2" />
+                        <div class="input-group-append">
+                            <!-- SUBMIT BUTTON -->
+                            <button class="subbutton" type="button" id="submit-btn">
+                                Submit
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
     <!-- Main Container for all content -->
     <div class="container">
-        <div class="header">
+        <!-- <div class="header">
             <div id="searchinput">
                 <div class="input-group mb-3">
                     <input id="search-field" type="text" class="form-control" placeholder="Movie Search"
@@ -41,7 +64,7 @@
                     <h3>Movie Traveler</h3>
                 </div>
             </a>
-        </div>
+        </div> -->
 
         <div class="topsuggestion">
             <h3>Top Suggestions:</h3>
@@ -49,7 +72,6 @@
         <div id="main-body">
             <!-- This is where the movie posters are populated to -->
         </div>
-
     </div>
 
     <!-- Calling our Javacript -->
