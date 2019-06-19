@@ -5,6 +5,16 @@ var mainPagePosters = ["300", "John Wick", "Crazy Rich Asians", "Gladiator", "I 
 var currentFile = window.location.pathname.split("/").pop();
 
 
+// This is the Toaster Function
+function showToast(text) {
+    var x = document.getElementById("toast");
+    x.classList.add("show");
+    x.innerHTML='Please Enter A Movie';
+    setTimeout(function(){
+      x.classList.remove("show");
+    },3000);
+  }
+
 //This function searches omdb with the keyword and populates the results page
 function searchResult() {
     var movieKey = "eb91f19f";
@@ -231,11 +241,19 @@ for (var i = 0; i < mainPagePosters.length; i++) {
 $("#submit-btn").on("click", function () {
     event.preventDefault();
 
-    //keyword is set to the value of the search input box
-    keyword = $("#search-field").val();
-    //Replace any blank spaces with + signs
-    keyword = keyword.replace(" ", "+");
 
+    //keyword is set to the value of the search input box
+    keyword = $("#search-field").val().trim();
+    //Replace any blank spaces with + signs
+    // keyword = keyword.replace(" ", "+");
+
+    // checks to see if toast should run
+    console.log(keyword);
+    if (keyword === " " || keyword === undefined || keyword === "") {
+        showToast();
+        // return;
+    } else {
+    keyword = keyword.replace(" ", "+");
     //Make a variable with the value equal to the last section of the url after it's split by "/"s
     // For example, www.mywebsite.com/database/index.html?title=terminator would be split into 
     // an array of ['www.mywebsite.com' , 'database' , 'index.html?title=terminator'] 
@@ -252,6 +270,7 @@ $("#submit-btn").on("click", function () {
         //Reload the results page with the new keyword in the query selector of the url
         window.location.href = 'results.html?title=' + keyword;
     }
+}
 
 });
 
