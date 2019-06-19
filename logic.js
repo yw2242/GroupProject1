@@ -1,55 +1,12 @@
 // Comment everything you code!!
 
 var keyword = "";
-var movieKey = "eb91f19f";
 var mainPagePosters = ["300", "John Wick", "Crazy Rich Asians", "Gladiator", "I Am Legend", "Lord of the Rings"];
-var movie;
-
-// var currentFile = window.location.pathname.split("/").pop();
-
-if (window.location.search) {
-   keyword = window.location.search.split("=")[1];
-   
-   omdbSearch();
-   redditSearch();
-}
+// var movie;
+var currentFile = window.location.pathname.split("/").pop();
 
 
-
-for(var i = 0; i < mainPagePosters.length; i++) {
-    var searchUrl = "https://www.omdbapi.com/?apikey=" + movieKey + "&t=" + mainPagePosters[i] + "&plot=full&r=json";
- 
-    $.ajax({
-        url: searchUrl,
-        method: "GET"
-    }).then(function (response) {
-
-        console.log(response.Poster);
-
-        var poster = $("<a>");
-
-        poster.attr("href", "movie.html?title=" + response.Title);
-
-        poster.attr("id", response.Title);
-        
-        var posterImg = $("<img>");
-
-        posterImg.attr("src", response.Poster);
-
-        posterImg.attr("data-poster", response.Title);
-
-        posterImg.addClass("poster-style");
-
-        poster.append(posterImg);
-    
-        $("#main-body").append(poster);
-
-    });
-}
-
-    // searchResult();
-}
-
+//This function searches omdb with the keyword and populates the results page
 function searchResult() {
     var movieKey = "eb91f19f";
     var resultURL = "https://www.omdbapi.com/?apikey=" + movieKey + "&s=" + keyword + "&plot=full&r=json";
@@ -59,104 +16,23 @@ function searchResult() {
         method: "GET"
     }).then(function (response) {
         console.log(response);
-        
+
         var search = response.Search;
         for (var j = 0; j < search.length; j++) {
-            
-            var total = [];
-            total.push(response.Search[j].Title);
 
-            var newTitle = $("<h4>");
             var newRow = $("<div>");
+            var newTitle = $("<h4>");
             newTitle.addClass("search-result");
             newTitle.attr(response.Search[j].Title);
             newTitle.text(response.Search[j].Title);
 
             newRow.append(newTitle);
             $("#search-content-div").append(newRow);
-
-            console.log(response.Search[j].Title);
-    
-        // $("#search-input").val("");
-
         }
-       
     })
-       
+}
 
 
-
-// $(document).on("click", ".poster-style", function() {
-//     // var title = $(this).data-poster;
-//     console.log($(this).attr("data-poster"));
-
-//     var posterTitle = $(this).attr("data-poster");
-
-//     omdbSearch(posterTitle);
-
-//     // omdbSearch(title)
-// })
-
-// function getMovieInfo(){
-   
-//     var searchUrl = "https://www.omdbapi.com/?apikey=" + movieKey + "&t=" + "300" + "&plot=full&r=json";
- 
-//     $.ajax({
-//         url: searchUrl,
-//         method: "GET"
-//     }).then(function (response) {
-//         // var poster = response.Poster;
-//         // console.log(poster);
-//         // var moviePoster = $(".movieposters");
-//         // moviePoster.attr("src", poster);
-//         console.log(response.Poster)
-
-//         for(var i = 0; i < mainPagePosters.length; i++) {
-//             var poster = $("<img>");
-//             poster.attr("src", response.Poster);
-//             $("#main-body").append(poster);
-    
-//         }
-//         // var poster = $("<img>");
-//         // poster.attr("src", response.Poster);
-//         // $("#main-body").append(poster);
-        
-        
-
-
-//     });
-// }
-
-// getMovieInfo();
-
-// function mainpageOpen() {
-//     // var movieKey = "eb91f19f";
-//     // var searchUrl = "https://www.omdbapi.com/?apikey=" + movieKey + "&t=" + "300" + "&plot=full&r=json";
-//     // var mainPagePosters = ["300", "John Wick", "Crazy Rich Asians", "Gladiator"];
-//     // var movieTitle = 0;
-    
-    
-//     // // $.ajax({
-//     // //     url: searchUrl,
-//     // //     method: "GET"
-//     // // }).then(function (response) {
-//     // //     console.log(response)
-//     // //     // for(i = 0; i < mainPagePosters.length; i++){
-//         // var poster = response.Poster;
-//         //     console.log(poster);
-//         //     var moviePoster = $(".movieposters");
-//         //         moviePoster.attr("img", searchUrl);
-//     //     // }
-//     // });
-//     for(var i = 0; i < mainPagePosters.length; i++){
-//         getMovieInfo(mainPagePosters[i]);
-       
-
-
-//     }
-// }
-
-// mainpageOpen();
 // This function searches OMDB for the keyword
 function omdbSearch() {
     //OMDB Api Key
@@ -168,33 +44,33 @@ function omdbSearch() {
         method: "GET"
     }).then(function (response) {
         console.log(response);
-             
-            var poster = response.Poster;
-            console.log(poster);
-            var moviePoster = $("#movie-poster");
-                moviePoster.attr("src", poster);
-                
 
-            var title = response.Title;
-            $("#movie-title").text("Title: " + title);  
+        var poster = response.Poster;
+        console.log(poster);
+        var moviePoster = $("#movie-poster");
+        moviePoster.attr("src", poster);
 
-            var actors = response.Actors;
-            $("#movie-actors").text("Actors: " + actors);
 
-            var year = response.Year;
-            $("#movie-year").text("Year: " + year);
+        var title = response.Title;
+        $("#movie-title").text("Title: " + title);
 
-            var plot = response.Plot;
-            $("#movie-plot").text("Plot: " + plot);
+        var actors = response.Actors;
+        $("#movie-actors").text("Actors: " + actors);
 
-            // $("#search-input").val("");
+        var year = response.Year;
+        $("#movie-year").text("Year: " + year);
+
+        var plot = response.Plot;
+        $("#movie-plot").text("Plot: " + plot);
     });
 }
 
+
 // Function that searches Reddit for keyword
 function redditSearch() {
-    
-    var redditURL = "https://www.reddit.com/search.json?&sort=top&limit=25&t=all&self=yes&q=" + keyword + " movie";
+
+    var redditURL = "https://www.reddit.com/search.json?&sort=top&limit=20&t=all&q=" + keyword + " movie";
+    // &self=yes
 
     $.ajax({
         url: redditURL,
@@ -203,9 +79,9 @@ function redditSearch() {
         console.log(response.data.children);
         displayReddit(response);
     });
-
 }
 
+//This function displays the reddit results
 function displayReddit(response) {
 
     //This variable keeps track of the # of posts we've added
@@ -273,7 +149,7 @@ function displayReddit(response) {
                 $(newDiv).append(image);
                 $(newDiv).append(newp);
                 console.log("Count = " + count);
-                count++; 
+                count++;
                 postCount++
             } else {
                 return;
@@ -284,44 +160,84 @@ function displayReddit(response) {
 
 }
 
+//This if statement is looking to see if there's a query selector in the page url everytime the javascript is called in our html
+if (currentFile.includes("movie.html")) {
+    $("#reddit-results-row").empty();
+    //grab the value after the "=" of the url
+    //set this value as the keyword
+    keyword = window.location.search.split("=")[1];
 
+    //Call the omdb function
+    //Call the reddit function
+    omdbSearch();
+    redditSearch();
+
+} else if (currentFile.includes("results.html")) {
+    console.log("You're on the results page");
+    keyword = window.location.search.split("=")[1];
+    searchResult();
+}
+
+
+//This function takes the mainPagePosters array and puts them on the index.html page
+for (var i = 0; i < mainPagePosters.length; i++) {
+    var movieKey = "eb91f19f";
+    var searchUrl = "https://www.omdbapi.com/?apikey=" + movieKey + "&t=" + mainPagePosters[i] + "&plot=full&r=json";
+
+    $.ajax({
+        url: searchUrl,
+        method: "GET"
+    }).then(function (response) {
+
+        console.log(response.Poster);
+
+        var poster = $("<a>");
+
+        poster.attr("href", "movie.html?title=" + response.Title);
+
+        poster.attr("id", response.Title);
+
+        var posterImg = $("<img>");
+
+        posterImg.attr("src", response.Poster);
+
+        posterImg.attr("data-poster", response.Title);
+
+        posterImg.addClass("poster-style");
+
+        poster.append(posterImg);
+
+        $("#main-body").append(poster);
+
+    });
+    // searchResult();
+}
 
 // On click search button...
 $("#submit-btn").on("click", function () {
-    $("#reddit-results-row").empty();
     event.preventDefault();
 
     keyword = $("#search-field").val();
     keyword = keyword.replace(" ", "+");
-    
-    // window.location.href = 'results.html?title=' + keyword;
-    // console.log(window.location.href);
 
 
-    // //For Testing...
-    omdbSearch();
-    redditSearch();
-
-    // searchResult();
+    var currentFile = window.location.pathname.split("/").pop();
+    window.location.href = 'results.html?title=' + keyword;
+    if (currentFile.includes("movie.html") || currentFile.includes("index.html")) {
+        console.log("This is not the results page");
+        window.location.href = 'results.html?title=' + keyword;
+    } else if (currentFile.includes("results.html")) {
+        console.log("This is the results page");
+        window.location.href = 'results.html?title=' + keyword;
+    }
 
 });
 
+// After clicking a movie result on the results.html page...
+$(document).on("click", ".search-result", function () {
+    keyword = ($(this).text());
+    console.log("This is the value: " + keyword);
 
-
-
-// After clicking a movie...
-$(document).on("click", ".search-result", function() {
-    console.log("clicked!");
-    //Need something that will grab the movie's title
-    keyword = $(this).val().trim();
-    console.log(keyword);
-
-    // window.location.href = 'movie.html?title=' + keyword;
-    keyword = window.location.search
-
-    // omdbSearch();
-    // redditSearch();
+    window.location.href = 'movie.html?title=' + keyword;
 })
-
-
 
