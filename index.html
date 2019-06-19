@@ -1,59 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Meme that Movie</title>
-
-    <!-- Links to Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Travel into Movies</title>
+   
+   <!-- Links to Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
 
     <!-- JQuery -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <!-- Other Bootstrap links -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
-</head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!-- Other Bootstrap links -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
+</head>
 <body>
     <!-- Main Container for all content -->
     <div class="container">
-        <div class="header">
-            <div id="searchinput">
-                <div class="input-group mb-3">
-                    <input id="search-field" type="text" class="form-control" placeholder="Movie Search"
-                        aria-label="Recipient's username" aria-describedby="button-addon2">
-                    <div class="input-group-append">
-                        <button class="subbutton" type="button" id="submit-btn">Submit</button>
+            <div class="header">
+                <div id="searchinput">
+                        <div class="input-group mb-3">
+                            <input id="search-field" type="text" class="form-control" placeholder="Movie Search" aria-label="Recipient's username" aria-describedby="button-addon2">
+                            <div class="input-group-append">
+                            <button class="subbutton" type="button" id="submit-btn">Submit</button>
+                            </div>
+                        </div>
+                </div>
+                <a href="#" id="brand">
+                    <div id="brandcontainer">
+                        <h3>Movie Traveler</h3>
                     </div>
-                </div>
+                </a>
+                
+
+                    
+            <!-- <button type="submit" class="subbutton" id="submit-btn">Submit</button> -->
             </div>
-            <a href="#" id="brand">
-                <div id="brandcontainer">
-                    <h3>Movie Traveler</h3>
-                </div>
-            </a>
+        
+            <!-- <div class="row">
+                    <div class="col-3">
+                      <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                        <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Michelle</a>
+                        <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">David</a>
+                        <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Megan</a>
+                        <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Rob</a>
+                      </div>
+                    </div>
+                    <div class="col-9">
+                      <div class="tab-content" id="v-pills-tabContent">
+                        <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">...</div>
+                        <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">...</div>
+                        <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">...</div>
+                        <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">...</div>
+                      </div>
+                    </div>
+                </div> -->
+                <div class="topsuggestion">
+                        <h3>Top Suggestions:</h3>
+                    </div>
+                    <div id="main-body">
+                        <!-- <div class="movieposters">
+                            <a href="#"> 
+                                <div id="movieposter1"></div>
+                                <div class="suggestiontitles">
+                                    <div id="suggestiontitle1"></div>
+                                </div>
+                            </a>
+                            <a href="#">
+                                    <div id="movieposter2"></div>
+                                    <div class="suggestiontitles">
+                                        <div id="suggestiontitle2"></div>
+                                    </div>
+                            </a>
+                            
+                            <a href="#">
+                                    <div id="movieposter3"></div>
+                                    <div class="suggestiontitles">
+                                        <div id="suggestiontitle3"></div>
+                                    </div>
+                            </a>
+                            <a href="#">
+                                <div id="movieposter4"></div>
+                                <div class="suggestiontitles">
+                                    <div id="suggestiontitle4"></div>
+                                </div>
+                            </a>
+                        </div> -->
+                        </div>
+                   
+                           
         </div>
+        
+    <!-- </div> -->
 
-        <div class="topsuggestion">
-            <h3>Top Suggestions:</h3>
-        </div>
-        <div id="main-body">
-            <!-- This is where the movie posters are populated to -->
-        </div>
+    
 
-    </div>
-
-    <!-- Calling our Javacript -->
-    <script type="text/javascript" src="logic.js"></script>
+<script type="text/javascript" src="logic.js"></script>
 </body>
-
 </html>
