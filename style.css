@@ -133,7 +133,7 @@ body {
   left: 0;
   height: 100%;
   width: 3px;
-  background-color: #fff;
+  /* background-color: #fff; */
   transform-origin: 0 50%;
 }
 
@@ -305,6 +305,21 @@ h1 {
 
 #search-header {
   padding-top: 10px;
+}
+
+.ml16 {
+  color: white;
+  padding: 40px 0;
+  font-weight: 800;
+  font-size: 2em;
+  text-transform: uppercase;
+  letter-spacing: 0.5em;
+  overflow: hidden;
+}
+
+.ml16 .letter {
+  display: inline-block;
+  line-height: 1em;
 }
 
 #search-content-div {
