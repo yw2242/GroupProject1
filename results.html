@@ -9,7 +9,9 @@
 
     <!-- Links to Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+   <!-- GOOGLE FONTS    -->
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+HK&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css" />
 
     <!-- JQuery -->
@@ -23,7 +25,11 @@
         <div class="container">
             <div class="header">
                 <!-- WHERE THE TITLE IMAGE GOES -->
-                <img src="images/title-01.png" id="title-image" />
+                <a href="index.html"><img src="images/title-01.png" id="title-image"></a>
+                
+                <!-- HERE IS THE TOASTER BUTTON -->
+                <!-- <button onclick="showToast('Please Enter A Movie')">Show Toaster</button> -->
+                <div id="toast"></div>
 
                 <div id="searchinput">
                     <div class="input-group mb-3">

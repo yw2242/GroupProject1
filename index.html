@@ -10,6 +10,8 @@
     <!-- Links to Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+     <!-- GOOGLE FONTS    -->
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+HK&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css" />
 
     <!-- JQuery -->
@@ -33,13 +35,17 @@
                 <!-- WHERE THE TITLE IMAGE GOES -->
                 <img src="images/title-01.png" id="title-image" />
 
+                    <!-- HERE IS THE TOASTER BUTTON -->
+                    <!-- <button onclick="showToast('Please Enter A Movie')">Show Toaster</button> -->
+                    <div id="toast"></div>
+
                 <div id="searchinput">
                     <div class="input-group mb-3">
                         <input type="text" id="search-field" class="form-control" placeholder="Movie Search"
                             aria-label="Recipient's username" aria-describedby="button-addon2" />
                         <div class="input-group-append">
                             <!-- SUBMIT BUTTON -->
-                            <button class="subbutton" type="button" id="submit-btn">
+                            <button class="subbutton" type="button" id="submit-btn" onclick="showToast('Please Enter A Movie')">
                                 Submit
                             </button>
                         </div>

@@ -5,6 +5,16 @@ var mainPagePosters = ["The Avengers", "The Lion King", "Crazy Rich Asians", "Gl
 var currentFile = window.location.pathname.split("/").pop();
 
 
+// This is the Toaster Function
+function showToast(text) {
+    var x = document.getElementById("toast");
+    x.classList.add("show");
+    x.innerHTML='Please Enter A Movie';
+    setTimeout(function(){
+      x.classList.remove("show");
+    },3000);
+  }
+
 //This function searches omdb with the keyword and populates the results page
 function searchResult() {
     var movieKey = "eb91f19f";
@@ -133,8 +143,7 @@ function omdbSearch() {
 // Function that searches Reddit for keyword
 function redditSearch() {
 
-    var redditURL = "https://www.reddit.com/search.json?&sort=top&limit=20&t=all&q=" + keyword + " movie";
-    // &self=yes
+    var redditURL = "https://www.reddit.com/search.json?&sort=top&limit=400&t=all&q=" + keyword;
 
     $.ajax({
         url: redditURL,
@@ -145,24 +154,33 @@ function redditSearch() {
     });
 }
 
-var postCount = 0;
-var postArray = [];
-
 //This function displays the reddit results
 function displayReddit(response) {
 
-    //This variable keeps track of the # of posts we've added
-    // var postCount = 0;
-    // var postArray = [];
+    // //This variable keeps track of the # of posts we've added
+    var postCount = 1;
+    var postArray = [];
 
-    //While the number of posts is less than 9...
-    while (postCount < 9) {
+    //Run this for each function that will append the reddit image, link and title to the page
+    response.data.children.forEach(function (post) {
+        // console.log(post.data.subreddit);
 
-        //Run this for each function that will append the reddit image, link and title to the page
-        response.data.children.forEach(function (post) {
-
+        if (postCount <= 8) {
             //variable automatically set to false
             var isImage = false;
+
+            function isCorrectSubreddit(subreddit) {
+                console.log(subreddit);
+                var acceptedSubreddits = ["funny", "movies", "MovieDetails", "dankmemes", "memes", "marvelstudios", "BeAmazed", "YMS", "pics", "GetMotivated"];
+                if(acceptedSubreddits.includes(subreddit)) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+
+
+            var goodSubreddit = isCorrectSubreddit(post.data.subreddit);
 
             //This function checks if the url of the post is an image
             function isUrlImage(url) {
@@ -188,56 +206,41 @@ function displayReddit(response) {
             isUrlImage(post.data.url);
 
             //While the url is an image and the post count is less than 9...
-            if (isImage === true) {
-                console.log(post.data.url);
+            if (isImage && goodSubreddit) {
+                // console.log("Post URL: " + post.data.url);
+                postArray.push(post.data.title);
+                // console.log("This is the postArray" + postArray);
 
-                // //push the url to the postArray
-                // postArray.push(post.data.title);
-                // console.log("postArray: " + postArray);
+                // create these variables using the still image and gif urls
+                var title = post.data.title;
+                var subreddit = post.data.subreddit;
+                var imgURL = post.data.url;
 
-                //Loop through the post array to see if the url has already been used
-                    // (post.data.title === postArray[i]) {
-                    //     return;
-                    // }
-                    // else if (post.data.title != postArray[i]) {
-                        //push the url to the postArray
-                        // postArray.push(post.data.title);
-                        // console.log("postArray: " + postArray);
+                // console.log("Title: " + title + "  Subreddit: " + subreddit + "  URL: " + imgURL + "  Thumbnail: " + thumbnail);
 
-                        // create these variables using the still image and gif urls
-                        var title = post.data.title;
-                        var subreddit = post.data.subreddit;
-                        var imgURL = post.data.url;
-                        var thumbnail = post.data.thumbnail;
+                // makes new image tag for each gif and adds the following attr and class
+                var image = $("<img>");
+                image.attr("src", imgURL);
+                image.addClass("reddit-img");
 
-
-                        console.log("Title: " + title + "  Subreddit: " + subreddit + "  URL: " + imgURL + "  Thumbnail: " + thumbnail);
-
-                        // makes new image tag for each gif and adds the following attr and class
-                        var image = $("<img>");
-                        image.attr("src", imgURL);
-                        image.addClass("reddit-img");
-
-                        //New div and paragraph information
-                        var newp = $("<p class='post-tag'> Title: " + title + "<br></br> Subreddit: " + subreddit + "</p>");
-                        var newa = $("<a href=" + imgURL + ">")
-                        var newDiv = $("<div class='col-lg-6 reddit-result-col'>");
+                //New div and paragraph information
+                var newp = $("<p class='post-tag'> Title: " + title + "<br></br> Subreddit: " + subreddit + "</p>");
+                var newa = $("<a href=" + imgURL + ">")
+                var newDiv = $("<div class='col-lg-6 reddit-result-col'>");
 
 
-                        // Append(image) to reddit results row
-                        $("#reddit-results-row").append(newa);
-                        $(newa).append(newDiv);
-                        $(newDiv).append(image);
-                        $(newDiv).append(newp);
-                        postCount++
-                        console.log("Post Count =" + postCount);
-                    }
-                // }
-            // } else {
-            //     return;
-            // }
-        })
-    }
+                // Append(image) to reddit results row
+                $("#reddit-results-row").append(newa);
+                $(newa).append(newDiv);
+                $(newDiv).append(image);
+                $(newDiv).append(newp);
+                postCount++
+                console.log("Subreddit = " + post.data.subreddit);
+            }
+        } else {
+            return;
+        }
+    })
 }
 
 
@@ -297,10 +300,17 @@ $("#submit-btn").on("click", function () {
     event.preventDefault();
 
     //keyword is set to the value of the search input box
-    keyword = $("#search-field").val();
+    keyword = $("#search-field").val().trim();
     //Replace any blank spaces with + signs
-    keyword = keyword.replace(" ", "+");
+    // keyword = keyword.replace(" ", "+");
 
+    // checks to see if toast should run
+    console.log(keyword);
+    if (keyword === " " || keyword === undefined || keyword === "") {
+        showToast();
+        // return;
+    } else {
+    keyword = keyword.replace(" ", "+");
     //Make a variable with the value equal to the last section of the url after it's split by "/"s
     // For example, www.mywebsite.com/database/index.html?title=terminator would be split into 
     // an array of ['www.mywebsite.com' , 'database' , 'index.html?title=terminator'] 
@@ -308,7 +318,7 @@ $("#submit-btn").on("click", function () {
     var currentFile = window.location.pathname.split("/").pop();
 
     //If the last section of the url contains the string "movie.html" or "index.html"...
-    if (currentFile.includes("movie.html") || currentFile.includes("index.html")) {
+    if (currentFile.includes("movie.html") || currentFile.includes("index.html") || currentFile === "") {
         //Take the user to the results page, with their keyword in the query selector of the url
         window.location.href = 'results.html?title=' + keyword;
     }
@@ -317,6 +327,7 @@ $("#submit-btn").on("click", function () {
         //Reload the results page with the new keyword in the query selector of the url
         window.location.href = 'results.html?title=' + keyword;
     }
+}
 
 });
 

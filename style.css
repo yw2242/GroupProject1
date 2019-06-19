@@ -1,4 +1,5 @@
 body {
+  font-family: 'Noto Sans HK', sans-serif;
   width: 100%;
   background: url(images/dark\ blue\ background.jpg);
   background-size: cover;
@@ -68,6 +69,8 @@ body {
 .topsuggestion {
   height: 50px;
   margin-top: 100px;
+  background-color: white;
+  color: black;
 }
 
 #searchinput {
@@ -291,7 +294,10 @@ h1 {
 
 /* Search Page Start */
 .search-result-container {
-  background-color: black;
+  background: rgba(0, 0, 0, 0.6);
+  border-color: white;
+  border-style: solid;
+  border-width: 1px;
   margin-top: 100px;
   padding-bottom: 20px;
   border-radius: 20px;
@@ -340,6 +346,33 @@ header {
     width: 100%;
     top: 0;
 }
+
+/* THE CSS FOR THE TOASTER BUTTON */
+#toast{
+    position:fixed;
+    top:0;
+    left:50%;
+    transform:translate(-50%);
+    background-color:navy;
+    color:#fff;
+    padding:16px;
+    border-radius:4px;
+    text-align:center;
+    z-index:1;
+    box-shadow:0 0 20px white;
+    visibility:hidden;
+    opacity:0;
+  }
+  
+  #toast.show{
+    visibility:visible;
+    animation:fadeInOut 3s;
+  }
+  
+  @keyframes fadeInOut{
+    5%,95%{opacity:1;top:50px}
+    15%,85%{opacity:1;top:30px}
+  }
 
 
 
