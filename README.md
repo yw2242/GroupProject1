@@ -3,17 +3,17 @@
 # MVP
 
 #### General Idea
-To encourage users to travel to where their favorite films were made.
-Connects users to their favorite movie in a tangible way.
+To help movie lovers learn discover the top memes to their favorite movies. 
 
 #### Target Audience
 People who want to be a part of their favorite movie.
 
 #### Primary Problem
-Users want to learn more about their favorite movie is filmed. 
+Users want to connect with other viewers regarding their favorite movies and embrace different moments, emotions, and 
+contextual interpretation. 
 
 #### Primary Goal
-Give a way to learn more about their favorite movies and experience those places.
+Allow users to establish a deeper connection with the movies they love and help connect the communities that build around specific films.
 
 #### Identify and Prioritize User Stories
  

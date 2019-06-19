@@ -1,7 +1,7 @@
 // Comment everything you code!!
 
 var keyword = "";
-var mainPagePosters = ["300", "John Wick", "Crazy Rich Asians", "Gladiator", "I Am Legend", "Lord of the Rings"];
+var mainPagePosters = ["300", "The Lion King", "Crazy Rich Asians", "Gladiator", "I Am Legend", "Lord of the Rings"];
 var currentFile = window.location.pathname.split("/").pop();
 
 
