@@ -68,8 +68,7 @@ body {
 .topsuggestion {
   height: 50px;
   margin-top: 100px;
-  margin-bottom: 20px;
-  color: white;
+  color: black;
 }
 
 #searchinput {
@@ -132,7 +131,7 @@ body {
   left: 0;
   height: 100%;
   width: 3px;
-  background-color: #fff;
+  /* background-color: #fff; */
   transform-origin: 0 50%;
 }
 
@@ -146,6 +145,15 @@ body {
   line-height: 1em;
 }
 
+.topsuggestion {
+  /* background: black; */
+  /* border-radius: 25px;
+  width: 525px;
+  height: 100; */
+  /* text-align: center; */
+  padding-left: 40px;
+  color: white;
+}
 .movieposters {
   display: flex;
   justify-content: space-between;
@@ -185,7 +193,7 @@ body {
   margin-top: 10px;
 }
 
-#suggestiontitle1 {
+/* #suggestiontitle1 {
   height: 50px;
   width: 150px;
   background-color: white;
@@ -211,7 +219,7 @@ body {
   width: 150px;
   background-color: white;
   border: 2px solid black;
-}
+} */
 
 h1 {
   text-align: center;
@@ -296,6 +304,21 @@ h1 {
 
 #search-header {
   padding-top: 10px;
+}
+
+.ml16 {
+  color: white;
+  padding: 40px 0;
+  font-weight: 800;
+  font-size: 2em;
+  text-transform: uppercase;
+  letter-spacing: 0.5em;
+  overflow: hidden;
+}
+
+.ml16 .letter {
+  display: inline-block;
+  line-height: 1em;
 }
 
 #search-content-div {
