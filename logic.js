@@ -46,36 +46,36 @@ $('.ml11 .letters').each(function(){
     $(this).html($(this).text().replace(/([^\x00-\x80]|\w)/g, "<span class='letter'>$&</span>"));
   });
 //   makes the top suggestion text pop up letter by letter
-  anime.timeline()
-    .add({
-      targets: '.ml11 .line',
-      scaleY: [0,1],
-      opacity: [0.5,1],
-      easing: "easeOutExpo",
-      duration: 1500
-    })
-    .add({
-      targets: '.ml11 .line',
-      translateX: [0,$(".ml11 .letters").width()],
-      easing: "easeOutExpo",
-      duration: 700,
-      delay: 400
-    }).add({
-      targets: '.ml11 .letter',
-      opacity: [0,1],
-      easing: "easeOutExpo",
-      duration: 600,
-      offset: '-=775',
-      delay: function(el, i) {
-        return 34 * (i+1)
-      }
-    }).add({
-      targets: '.ml11',
-      opacity: 1,
-      duration: 1000,
-      easing: "easeOutExpo",
-      delay: 1000
-    });
+//   anime.timeline()
+//     .add({
+//       targets: '.ml11 .line',
+//       scaleY: [0,1],
+//       opacity: [0.5,1],
+//       easing: "easeOutExpo",
+//       duration: 1500
+//     })
+//     .add({
+//       targets: '.ml11 .line',
+//       translateX: [0,$(".ml11 .letters").width()],
+//       easing: "easeOutExpo",
+//       duration: 700,
+//       delay: 400
+//     }).add({
+//       targets: '.ml11 .letter',
+//       opacity: [0,1],
+//       easing: "easeOutExpo",
+//       duration: 600,
+//       offset: '-=775',
+//       delay: function(el, i) {
+//         return 34 * (i+1)
+//       }
+//     }).add({
+//       targets: '.ml11',
+//       opacity: 1,
+//       duration: 1000,
+//       easing: "easeOutExpo",
+//       delay: 1000
+//     });
 
     // loop: true
 
@@ -279,15 +279,15 @@ $("#submit-btn").on("click", function () {
     //keyword is set to the value of the search input box
     keyword = $("#search-field").val().trim();
     //Replace any blank spaces with + signs
-    // keyword = keyword.replace(" ", "+");
+    keyword = keyword.replace(" ", "+");
 
     // checks to see if toast should run
     console.log(keyword);
     if (keyword === " " || keyword === undefined || keyword === "") {
         showToast();
-        // return;
+        return;
     } else {
-    keyword = keyword.replace(" ", "+");
+    // keyword = keyword.replace(" ", "+");
     //Make a variable with the value equal to the last section of the url after it's split by "/"s
     // For example, www.mywebsite.com/database/index.html?title=terminator would be split into 
     // an array of ['www.mywebsite.com' , 'database' , 'index.html?title=terminator'] 

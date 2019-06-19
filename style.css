@@ -5,7 +5,6 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-color: white; 
   color: white;
 }
 
@@ -69,8 +68,8 @@ body {
 .topsuggestion {
   height: 50px;
   margin-top: 100px;
-  background-color: white;
-  color: black;
+  margin-bottom: 20px;
+  color: white;
 }
 
 #searchinput {
@@ -147,14 +146,6 @@ body {
   line-height: 1em;
 }
 
-.topsuggestion {
-  /* background: black; */
-  border-radius: 25px;
-  width: 525px;
-  height: 100;
-  /* text-align: center; */
-  padding-left: 40px;
-}
 .movieposters {
   display: flex;
   justify-content: space-between;
