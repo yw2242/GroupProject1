@@ -80,11 +80,15 @@ function redditSearch() {
     });
 }
 
+var postCount = 0;
+var postArray = [];
+
 //This function displays the reddit results
 function displayReddit(response) {
 
     //This variable keeps track of the # of posts we've added
-    var postCount = 0;
+    // var postCount = 0;
+    // var postArray = [];
 
     //While the number of posts is less than 9...
     while (postCount < 9) {
@@ -119,45 +123,58 @@ function displayReddit(response) {
             isUrlImage(post.data.url);
 
             //While the url is an image and the post count is less than 9...
-            if (isImage === true && postCount < 9) {
+            if (isImage === true) {
 
-                // create these variables using the still image and gif urls
-                var title = post.data.title;
-                var subreddit = post.data.subreddit;
-                var imgURL = post.data.url;
-                var thumbnail = post.data.thumbnail;
-                var count = 0;
+                //push the url to the postArray
+                postArray.push(post.data.title);
+                console.log("postArray: " + postArray);
 
-                console.log("Title: " + title + "  Subreddit: " + subreddit + "  URL: " + imgURL + "  Thumbnail: " + thumbnail);
+                //Loop through the post array to see if the url has already been used
+                for (var i = 0; i <= postArray.length; i++) {
+                    if (post.data.title === postArray[i]) {
+                        return;
+                    }
+                    else if (post.data.title != postArray[i]) {
+                        //push the url to the postArray
+                        // postArray.push(post.data.title);
+                        // console.log("postArray: " + postArray);
 
-                // makes new image tag for each gif and adds the following attr and class
-                var image = $("<img>");
-                image.attr("src", imgURL);
-                image.addClass("reddit-img");
-                image.attr("id", 'result-' + count);
+                        // create these variables using the still image and gif urls
+                        var title = post.data.title;
+                        var subreddit = post.data.subreddit;
+                        var imgURL = post.data.url;
+                        var thumbnail = post.data.thumbnail;
 
-                //New div and paragraph information
-                var newp = $("<p class='post-tag'> Title: " + title + "<br></br> Subreddit: " + subreddit + "</p>");
-                var newa = $("<a href=" + imgURL + ">")
-                var newDiv = $("<div class='col-lg-6 reddit-result-col'>");
-                newDiv.attr("id", 'div-result' + count);
 
-                // Append(image) to reddit results row
-                $("#reddit-results-row").append(newa);
-                $(newa).append(newDiv);
-                $(newDiv).append(image);
-                $(newDiv).append(newp);
-                console.log("Count = " + count);
-                count++;
-                postCount++
+                        console.log("Title: " + title + "  Subreddit: " + subreddit + "  URL: " + imgURL + "  Thumbnail: " + thumbnail);
+
+                        // makes new image tag for each gif and adds the following attr and class
+                        var image = $("<img>");
+                        image.attr("src", imgURL);
+                        image.addClass("reddit-img");
+
+                        //New div and paragraph information
+                        var newp = $("<p class='post-tag'> Title: " + title + "<br></br> Subreddit: " + subreddit + "</p>");
+                        var newa = $("<a href=" + imgURL + ">")
+                        var newDiv = $("<div class='col-lg-6 reddit-result-col'>");
+
+
+                        // Append(image) to reddit results row
+                        $("#reddit-results-row").append(newa);
+                        $(newa).append(newDiv);
+                        $(newDiv).append(image);
+                        $(newDiv).append(newp);
+                        postCount++
+                        console.log("Post Count =" + postCount);
+                    }
+                }
             } else {
                 return;
             }
-            console.log("Post Count =" + postCount);
         })
     }
-
 }
+
 
 //This if statement is looking to see if there's a query selector in the page url everytime the javascript is called in our html
 if (currentFile.includes("movie.html")) {
@@ -173,9 +190,9 @@ if (currentFile.includes("movie.html")) {
     omdbSearch();
     redditSearch();
 
-} 
+}
 //If we're already on the results page...
-    else if (currentFile.includes("results.html")) {
+else if (currentFile.includes("results.html")) {
     //Take the keyword after the "=" in the query selector section of the URL
     keyword = window.location.search.split("=")[1];
     //Run the search result function
@@ -229,9 +246,9 @@ $("#submit-btn").on("click", function () {
     if (currentFile.includes("movie.html") || currentFile.includes("index.html")) {
         //Take the user to the results page, with their keyword in the query selector of the url
         window.location.href = 'results.html?title=' + keyword;
-    } 
-        //If the last section of the url contains the string "results.html"...
-        else if (currentFile.includes("results.html")) {
+    }
+    //If the last section of the url contains the string "results.html"...
+    else if (currentFile.includes("results.html")) {
         //Reload the results page with the new keyword in the query selector of the url
         window.location.href = 'results.html?title=' + keyword;
     }
