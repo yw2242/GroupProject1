@@ -203,14 +203,14 @@ h1 {
 }
 
 .header-space {
-  margin-top: 40px;
+  margin-top: 20px;
   padding-left: 5%;
   padding-top: 15px;
 }
 
 /* Results Page Start */
 #movie-row {
-  padding: 10px 0px;
+      padding: 10px 0px 40px;
 }
 
 #results-row {
