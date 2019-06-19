@@ -124,17 +124,17 @@ function displayReddit(response) {
 
             //While the url is an image and the post count is less than 9...
             if (isImage === true) {
+                console.log(post.data.url);
 
-                //push the url to the postArray
-                postArray.push(post.data.title);
-                console.log("postArray: " + postArray);
+                // //push the url to the postArray
+                // postArray.push(post.data.title);
+                // console.log("postArray: " + postArray);
 
                 //Loop through the post array to see if the url has already been used
-                for (var i = 0; i <= postArray.length; i++) {
-                    if (post.data.title === postArray[i]) {
-                        return;
-                    }
-                    else if (post.data.title != postArray[i]) {
+                    // (post.data.title === postArray[i]) {
+                    //     return;
+                    // }
+                    // else if (post.data.title != postArray[i]) {
                         //push the url to the postArray
                         // postArray.push(post.data.title);
                         // console.log("postArray: " + postArray);
@@ -167,10 +167,10 @@ function displayReddit(response) {
                         postCount++
                         console.log("Post Count =" + postCount);
                     }
-                }
-            } else {
-                return;
-            }
+                // }
+            // } else {
+            //     return;
+            // }
         })
     }
 }
