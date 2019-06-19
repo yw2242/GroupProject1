@@ -15,13 +15,14 @@
     <link rel="stylesheet" href="style.css" />
 
     <!-- JQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 
 <body>
     <!-- THE FIXED HEADER -->
     <header id="movie-results-header">
-        <div class="container">
+        <div class="container header-container">
             <div class="header">
                 <!-- WHERE THE TITLE IMAGE GOES -->
                 <a href="index.html"><img src="images/title-01.png" id="title-image"></a>
@@ -48,7 +49,8 @@
 
     <!-- Main Container for all content -->
     <div class="container search-result-container">
-        <h1 id="search-header">Search results</h1>
+        <!-- <h1 id="search-header">Search results</h1> -->
+        <h1 class="ml16" id="search-header">Search Results</h1>
         <div id="search-content-div" class="search-content-div">
             <!-- This is where the search results go -->
         </div>
