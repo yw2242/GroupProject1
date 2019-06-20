@@ -32,8 +32,8 @@ function searchResult() {
             var newRow = $("<div>");
             var newTitle = $("<h4>");
             newTitle.addClass("search-result");
-            newTitle.attr(response.Search[j].Title);
-            newTitle.text(response.Search[j].Title);
+            newTitle.attr("data-movie" , response.Search[j].Title);
+            newTitle.text(response.Search[j].Title + " (" + response.Search[j].Year + ")");
 
             newRow.append(newTitle);
             $("#search-content-div").append(newRow);
@@ -93,18 +93,19 @@ function redditSearch() {
 function displayReddit(response) {
 
     // //This variable keeps track of the # of posts we've added
-    var postCount = 1;
+    var postCount = 0;
 
-    //Run this for each function that will append the reddit image, link and title to the page
+    //Run this function that will append the reddit image, link, and title to the page if they're within our conditions
     response.data.children.forEach(function (post) {
 
-        if (postCount <= 10) {
-            //variable automatically set to false
-            var isImage = false;
+        if (postCount <= 9) {
 
+            //Function checks to see if the subreddit each post is from is also in our acceptedSubreddits array
             function isCorrectSubreddit(subreddit) {
-                // console.log(subreddit);
+                //There are the subreddits we want results from
                 var acceptedSubreddits = ["funny", "movies", "MovieDetails", "dankmemes", "memes", "marvelstudios", "BeAmazed", "YMS", "GetMotivated"];
+
+                //If the json object is from one of the subreddits we want...
                 if (acceptedSubreddits.includes(subreddit)) {
                     return true;
                 } else {
@@ -112,7 +113,7 @@ function displayReddit(response) {
                 }
             }
 
-
+            //This variable is set to a boolean value dependent on whether or not the post is from an accepted subreddit
             var goodSubreddit = isCorrectSubreddit(post.data.subreddit);
 
             //This function checks if the url of the post is an image
@@ -127,16 +128,14 @@ function displayReddit(response) {
                 var imageTypes = ['jpg', 'jpeg', 'tiff', 'png', 'gif', 'bmp'];
                 //check if the extension matches anything in the list.
                 if (imageTypes.indexOf(extension) !== -1) {
-                    isImage = true;
                     return true;
                 } else {
-                    isImage = false;
                     return false;
                 }
             }
 
             //Here we call the isUriImage function for each of the posts' urls
-            isUrlImage(post.data.url);
+            var isImage = isUrlImage(post.data.url);
 
             //While the url is an image and the post count is less than 9...
             if (isImage && goodSubreddit) {
@@ -145,7 +144,7 @@ function displayReddit(response) {
                 var subreddit = post.data.subreddit;
                 var imgURL = post.data.url;
 
-                // console.log("Title: " + title + "  Subreddit: " + subreddit + "  URL: " + imgURL + "  Thumbnail: " + thumbnail);
+                console.log("Title: " + title + "  Subreddit: " + subreddit + "  URL: " + imgURL);
 
                 // makes new image tag for each gif and adds the following attr and class
                 var image = $("<img>");
@@ -209,16 +208,19 @@ for (var i = 0; i < mainPagePosters.length; i++) {
         method: "GET"
     }).then(function (response) {
 
+        //Creating link element that will go to the movies page with the title in the url
         var poster = $("<a>");
         poster.attr("href", "movie.html?title=" + response.Title);
         poster.attr("id", response.Title);
 
+        //Creating an image element that we will append to the link element
         var posterImg = $("<img>");
         posterImg.attr("src", response.Poster);
         posterImg.attr("data-poster", response.Title);
         posterImg.addClass("poster-style");
         poster.append(posterImg);
 
+        //Append poster image and link to the div
         $("#main-body").append(poster);
 
     });
@@ -230,28 +232,19 @@ $("#submit-btn").on("click", function () {
 
     //keyword is set to the value of the search input box
     keyword = $("#search-field").val().trim();
-    //Replace any blank spaces with + signs
-    // keyword = keyword.replace(" ", "+");
 
-    // checks to see if toast should run
-    console.log(keyword);
+    // If the user input is empty, blank spaces or undefined...
     if (keyword === " " || keyword === undefined || keyword === "") {
+        //Popup a Toast that requests the user enter a keyword
         showToast();
-        // return;
-    } else {
+    } 
+        //If the user input contains a !empty string...
+        else {
+        //Replace any blank spaces with %20 signs
+        keyword = keyword.replace(" ", "%20");
 
-        keyword = keyword.replace(" ", "+");
-        //Make a variable with the value equal to the last section of the url after it's split by "/"s
-        // For example, www.mywebsite.com/database/index.html?title=terminator would be split into 
-        // an array of ['www.mywebsite.com' , 'database' , 'index.html?title=terminator'] 
-        // We're grabbing the last index of this array
-        var currentFile = window.location.pathname.split("/").pop();
-
-        //If the last section of the url contains the string "movie.html" or "index.html"...
-        if (currentFile.includes("movie.html") || currentFile.includes("index.html") || currentFile === "" || currentFile.includes("results.html")) {
-            //Take the user to the results page, with their keyword in the query selector of the url
-            window.location.href = 'results.html?title=' + keyword;
-        }
+        //Take the user to the results page, with their keyword in the query selector of the url
+        window.location.href = 'results.html?title=' + keyword;
     }
 
 });
@@ -259,7 +252,8 @@ $("#submit-btn").on("click", function () {
 // After clicking a movie result on the results.html page...
 $(document).on("click", ".search-result", function () {
     //Keyword is set to the text of that selection
-    var movie = ($(this).text());
+    var movie = ($(this).attr("data-movie"));
+    console.log(movie);
     //User is taken to the movie page, with the movie title in the query selector
     window.location.href = 'movie.html?title=' + movie;
 })
@@ -268,6 +262,7 @@ $(document).on("click", ".search-result", function () {
 $('.ml11 .letters').each(function(){
     $(this).html($(this).text().replace(/([^\x00-\x80]|\w)/g, "<span class='letter'>$&</span>"));
   });
+
 //   makes the top suggestion text pop up letter by letter
   anime.timeline()
     .add({
@@ -300,7 +295,7 @@ $('.ml11 .letters').each(function(){
       delay: 1000
     });
 
-    // Wrap every letter in a span
+// Wrap every letter in a span
 $('.ml16').each(function(){
     $(this).html($(this).text().replace(/([^\x00-\x80]|\w)/g, "<span class='letter'>$&</span>"));
   });

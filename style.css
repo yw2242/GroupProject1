@@ -306,10 +306,6 @@ h1 {
   border-radius: 20px;
 }
 
-#search-header {
-  padding-top: 10px;
-}
-
 .ml16 {
   color: white;
   padding: 40px 0;
@@ -325,10 +321,19 @@ h1 {
   line-height: 1em;
 }
 
+#search-header.ml16{
+  padding: 25px 0px 12px 0px;
+}
+
 #search-content-div {
   color: white;
   margin-left: 90px;
   margin-top: 34px;
+}
+
+.search-result {
+  margin: 10px 0px;
+  cursor: pointer;
 }
 
 .search-result:hover {
