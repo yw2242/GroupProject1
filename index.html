@@ -5,19 +5,21 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Meme that Movie</title>
+    <link rel="icon" type="image/png" href="images/favicon-01.png" />
+    <title>cineMemes</title>
 
     <!-- Links to Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+
      <!-- GOOGLE FONTS    -->
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+HK&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css" />
 
     <!-- JQuery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+
     <!-- Other Bootstrap links -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
@@ -25,6 +27,10 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/5dec566d84.js"></script>
+
 </head>
 
 <body>
@@ -34,10 +40,10 @@
             <div class="header">
                 <!-- WHERE THE TITLE IMAGE GOES -->
                 <img src="images/title-01.png" id="title-image" />
-
-                    <!-- HERE IS THE TOASTER BUTTON -->
-                    <!-- <button onclick="showToast('Please Enter A Movie')">Show Toaster</button> -->
-                    <div id="toast"></div>
+                
+                <!-- Toaster -->
+                <div id="toast"></div>
+    
 
                 <div id="searchinput">
                     <div class="input-group mb-3">
@@ -45,7 +51,7 @@
                             aria-label="Recipient's username" aria-describedby="button-addon2" />
                         <div class="input-group-append">
                             <!-- SUBMIT BUTTON -->
-                            <button class="subbutton" type="button" id="submit-btn" onclick="showToast('Please Enter A Movie')">
+                            <button class="subbutton" type="button" id="submit-btn">
                                 Submit
                             </button>
                         </div>

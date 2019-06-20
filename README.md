@@ -1,6 +1,7 @@
-# GroupProject1
+# cineMeme
 
-# MVP
+# Link
+https://yw2242.github.io/GroupProject1/
 
 #### General Idea
 To help movie lovers learn discover the top memes to their favorite movies. 
@@ -18,6 +19,5 @@ Allow users to establish a deeper connection with the movies they love and help 
 #### Identify and Prioritize User Stories
  
  As a _____, I want, ______ so that I can _________.\
- As a movie lover, I want to search for the movies I like, so I can learn more about them and travel to the places it was filmed.\
- As the official leader of the Lord of the Rings Club, I want to know where Middle Earth is so I can go there.
+
  

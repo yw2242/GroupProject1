@@ -1,7 +1,7 @@
 // Comment everything you code!!
 
 var keyword = "";
-var mainPagePosters = ["The Avengers", "The Lion King", "Crazy Rich Asians", "Gladiator", "I Am Legend", "Lord of the Rings"];
+var mainPagePosters = ["The Avengers", "The Lion King", "Crazy Rich Asians", "The Princess Bride", "American Psycho", "Lord of the Rings"];
 var currentFile = window.location.pathname.split("/").pop();
 
 
@@ -9,7 +9,7 @@ var currentFile = window.location.pathname.split("/").pop();
 function showToast(text) {
     var x = document.getElementById("toast");
     x.classList.add("show");
-    x.innerHTML = 'Please Enter A Movie';
+    x.innerHTML = 'Please Enter a Movie';
     setTimeout(function () {
         x.classList.remove("show");
     }, 3000);
@@ -77,6 +77,10 @@ function omdbSearch() {
 
 // Function that searches Reddit for keyword
 function redditSearch() {
+
+    if (keyword.includes(":")) {
+        keyword = keyword.split(":").shift();
+    } 
 
     var redditURL = "https://www.reddit.com/search.json?&sort=top&limit=400&t=all&q=" + keyword;
 
@@ -263,7 +267,7 @@ $('.ml11 .letters').each(function(){
     $(this).html($(this).text().replace(/([^\x00-\x80]|\w)/g, "<span class='letter'>$&</span>"));
   });
 
-//   makes the top suggestion text pop up letter by letter
+// makes the top suggestion text pop up letter by letter
   anime.timeline()
     .add({
       targets: '.ml11 .line',
