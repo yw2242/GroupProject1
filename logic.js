@@ -78,6 +78,10 @@ function omdbSearch() {
 // Function that searches Reddit for keyword
 function redditSearch() {
 
+    if (keyword.includes(":")) {
+        keyword = keyword.split(":").shift();
+    } 
+
     var redditURL = "https://www.reddit.com/search.json?&sort=top&limit=400&t=all&q=" + keyword;
 
     $.ajax({
