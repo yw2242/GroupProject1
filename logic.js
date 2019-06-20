@@ -78,7 +78,7 @@ function omdbSearch() {
 // Function that searches Reddit for keyword
 function redditSearch() {
 
-    var redditURL = "https://www.reddit.com/search.json?&sort=top&limit=100&t=all&q=" + keyword;
+    var redditURL = "https://www.reddit.com/search.json?&sort=top&limit=400&t=all&q=" + keyword;
 
     $.ajax({
         url: redditURL,
@@ -242,21 +242,9 @@ $("#submit-btn").on("click", function () {
         else {
         //Replace any blank spaces with %20 signs
         keyword = keyword.replace(" ", "%20");
-        
+
         //Take the user to the results page, with their keyword in the query selector of the url
         window.location.href = 'results.html?title=' + keyword;
-
-        //Make a variable with the value equal to the last section of the url after it's split by "/"s
-            // For example, www.mywebsite.com/database/index.html?title=terminator would be split into 
-            // an array of ['www.mywebsite.com' , 'database' , 'index.html?title=terminator'] 
-            // We're grabbing the last index of this array
-        // var currentFile = window.location.pathname.split("/").pop();
-
-        //If the last section of the url contains the string "movie.html" or "index.html"...
-        // if (currentFile.includes("movie.html") || currentFile.includes("index.html") || currentFile === "" || currentFile.includes("results.html")) {
-            //Take the user to the results page, with their keyword in the query selector of the url
-            
-        // }
     }
 
 });
