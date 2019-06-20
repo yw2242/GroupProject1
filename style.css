@@ -247,6 +247,10 @@ h1 {
       padding: 10px 0px 40px;
 }
 
+#movie-info {
+  margin-top: 8px;
+}
+
 #results-row {
   margin-top: 20px;
   padding: 10px 0px;
@@ -339,6 +343,7 @@ h1 {
 .search-result:hover {
   color: #ccc;
 }
+
 #title-image {
     /* box-shadow: 1px 1px 1px 2px blue; */
     width: 378px;

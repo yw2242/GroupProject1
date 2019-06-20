@@ -9,7 +9,7 @@ var currentFile = window.location.pathname.split("/").pop();
 function showToast(text) {
     var x = document.getElementById("toast");
     x.classList.add("show");
-    x.innerHTML = 'Please Enter A Movie';
+    x.innerHTML = 'Please Enter a Movie';
     setTimeout(function () {
         x.classList.remove("show");
     }, 3000);
@@ -263,7 +263,7 @@ $('.ml11 .letters').each(function(){
     $(this).html($(this).text().replace(/([^\x00-\x80]|\w)/g, "<span class='letter'>$&</span>"));
   });
 
-//   makes the top suggestion text pop up letter by letter
+// makes the top suggestion text pop up letter by letter
   anime.timeline()
     .add({
       targets: '.ml11 .line',
